@@ -911,6 +911,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 4.19
       objectReference: {fileID: 0}
+    - target: {fileID: 4191459899247502950, guid: 1121272aa9306184694360155ce7d2de, type: 3}
+      propertyPath: m_Name
+      value: Damage Area
+      objectReference: {fileID: 0}
     - target: {fileID: 4191459899447728146, guid: 1121272aa9306184694360155ce7d2de, type: 3}
       propertyPath: m_Name
       value: Castle
