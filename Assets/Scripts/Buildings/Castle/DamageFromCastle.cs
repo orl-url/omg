@@ -40,7 +40,7 @@ namespace Buildings.Castle
             if (other.gameObject.TryGetComponent(out Enemies.Interaction _) && _currentTime <= 0)
             {
                 enemyPosition = other.transform.position;
-                print("enemypos: " + enemyPosition);
+                // print("enemypos: " + enemyPosition);
                 Instantiate(arrow, arrowShotPoint.position, transform.rotation);
                 _currentTime = cooldown;
             }

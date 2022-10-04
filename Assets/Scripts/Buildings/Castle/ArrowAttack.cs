@@ -26,19 +26,15 @@ namespace Buildings.Castle
         
         private void Start()
         {
-            // _castlePosition = aboutCastle.transform.position;
             arrowPos = gameObject.transform.position;
-            print("arrowPos:" + arrowPos);
             Vector2 heading = damageFromCastle.enemyPosition - arrowPos;
-            print("realenemypos " + damageFromCastle.enemyPosition);
-            print("mezhdu: " + heading);    
+            // print("realenemypos " + damageFromCastle.enemyPosition);
+            // print("mezhdu: " + heading);    
             // some = new Vector2(-300, 300);
             
             _rb.AddForce(heading, ForceMode2D.Force);
             //_enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
-            //_castle = GameObject.FindGameObjectWithTag("Building").GetComponent<Transform>();
         }
-
         
 
         public void OnCollisionStay2D(Collision2D coll)
@@ -66,10 +62,6 @@ namespace Buildings.Castle
             // {
             //     Destroy(gameObject, lifetime);
             // }
-            
-            
-
-            
             
             //transform.position = Vector2.MoveTowards(transform.position, _enemy.position, speed * Time.deltaTime);
 
