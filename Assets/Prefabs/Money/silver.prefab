@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 465311159241649276}
   - component: {fileID: 5500833833821560214}
   m_Layer: 0
-  m_Name: gold
+  m_Name: silver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,15 +72,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1713324141
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1728432100, guid: 5cf7d0d047d308d46ae4ad45f0844ba3, type: 3}
+  m_Sprite: {fileID: -1312368515, guid: 5cf7d0d047d308d46ae4ad45f0844ba3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.54, y: 6.48}
+  m_Size: {x: 10.03, y: 10.046576}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 2
-  value: 10
+  value: 7
 --- !u!1 &7376894220540001604
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,7 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1728432100, guid: 5cf7d0d047d308d46ae4ad45f0844ba3, type: 3}
+  m_Sprite: {fileID: -1312368515, guid: 5cf7d0d047d308d46ae4ad45f0844ba3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

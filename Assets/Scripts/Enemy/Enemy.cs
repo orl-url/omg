@@ -1,7 +1,7 @@
-using UnityEngine;
 using Common;
+using UnityEngine;
 
-namespace Enemies
+namespace Enemy
 {
     public class Enemy : MonoBehaviour
     {
@@ -14,46 +14,44 @@ namespace Enemies
         public GameObject coin;
         public HealthBar healthBar;
         
+        
         // Timer for cooldown.
         private void Start()
         {
             _currentTime = attackCooldown;
         }
-
+        
         private void Update()
         {
             _currentTime -= Time.deltaTime;
         }
 
+        
+
         // Damage the castle or some building.
+
         public void OnCollisionStay2D(Collision2D col)
         {
-            if (col.gameObject.TryGetComponent (out Buildings.Interaction building) && _currentTime <= 0f)
+            if (col.gameObject.TryGetComponent (out Buildings.Building building) && _currentTime <= 0f)
             {
                 building.TakeDamage(damage);
                 _currentTime = attackCooldown;
             }
         }
-        
+
         // Damage from castle or some building.
-       public void TakeDamage(float Damage)
-       {
-           health -= Damage;
-           healthBar.HealthUpdate(health);
-           if (health <= 0f)
-           {
-               KillEnemy();
-           }
-       }
-
-       // ReSharper disable Unity.PerformanceAnalysis
-       // Kill enemy and create coin.
-       private void KillEnemy()
-       {
-           Destroy(gameObject);
-           DropCoin();
-       }
-
+        public void TakeDamage(float Damage)
+        {
+            
+            health -= Damage;
+            healthBar.HealthUpdate(health);
+            if (health <= 0f)
+            {
+                Destroy(gameObject);
+                DropCoin();
+            }
+        }
+        
        private void DropCoin()
        {
            Instantiate(coin, transform.position, Quaternion.identity);

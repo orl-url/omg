@@ -11,14 +11,12 @@ namespace Buildings.Castle
 
         public GameObject arrow;
         public Transform arrowShotPoint;
-        // public Vector2 enemyPosition;
 
         // Timer.
         public void Start()
         {
             _currentTime = cooldown;
-            // _castlePos = gameObject.transform.position;
-           }
+        }
 
         private void Update()
         {
@@ -29,7 +27,7 @@ namespace Buildings.Castle
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.TryGetComponent(out Enemy _))
+            if (other.gameObject.TryGetComponent(out Enemy.Enemy _))
             {
                 
             }
@@ -40,7 +38,7 @@ namespace Buildings.Castle
             if (_currentTime >= 0)
                 return;
 
-            if (other.gameObject.TryGetComponent(out Enemy _))
+            if (other.gameObject.TryGetComponent(out Enemy.Enemy _))
             {
                 var target = other.transform.position;
                 SpawnArrow(target);
