@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Score : MonoBehaviour
+namespace TotalMoney
 {
-    public float score;
-    public Text scoreDisplay;
-
-    private void Update()
+    public class Score : MonoBehaviour
     {
-        scoreDisplay.text = "Gold: " + score.ToString();
+        public float score;
+        public Text scoreDisplay;
+
+        private void FixedUpdate()
+        {
+            scoreDisplay.text = "Gold: " + score.ToString();
+        }
     }
 }

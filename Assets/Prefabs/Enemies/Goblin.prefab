@@ -176,10 +176,10 @@ GameObject:
   - component: {fileID: 1848791217753964361}
   - component: {fileID: 1848791217753964360}
   - component: {fileID: 1848791217753964366}
-  - component: {fileID: 1848791217753964364}
-  - component: {fileID: 1848791217753964365}
   - component: {fileID: 32702429724953226}
   - component: {fileID: 595709426}
+  - component: {fileID: 1848791217753964364}
+  - component: {fileID: 1848791217753964365}
   m_Layer: 6
   m_Name: Goblin
   m_TagString: Enemy
@@ -281,36 +281,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9, y: 5.112446}
   m_EdgeRadius: 0
---- !u!114 &1848791217753964364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1848791217753964363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bdec7190c248e04c8e74067106ff606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.5
---- !u!114 &1848791217753964365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1848791217753964363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 026c62a0b81edeb40a0898c556dbcc5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: 1
-  damage: 0.25
-  attackCooldown: 0.31
-  coin: {fileID: 2886252648418929232, guid: 8d025b89b420db94da3a8ec1a8b548d5, type: 3}
-  healthBar: {fileID: 595709426}
 --- !u!50 &32702429724953226
 Rigidbody2D:
   serializedVersion: 4
@@ -345,6 +315,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 1848791217321642073}
+--- !u!114 &1848791217753964364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848791217753964363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bdec7190c248e04c8e74067106ff606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.51
+--- !u!114 &1848791217753964365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848791217753964363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026c62a0b81edeb40a0898c556dbcc5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  damage: 0.25
+  attackCooldown: 0.31
+  coin: {fileID: 2886252648418929232, guid: 8d025b89b420db94da3a8ec1a8b548d5, type: 3}
+  healthBar: {fileID: 595709426}
 --- !u!1 &1848791218365827925
 GameObject:
   m_ObjectHideFlags: 0
