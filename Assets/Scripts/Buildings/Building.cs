@@ -27,7 +27,7 @@ namespace Buildings
 
         public void OnCollisionStay2D(Collision2D col)
         {
-            if (_currentTime <= 0f && col.gameObject.TryGetComponent (out Enemy.Enemy enemy))
+            if (_currentTime <= 0f && col.gameObject.TryGetComponent (out Enemy enemy))
             {
                 enemy.TakeDamage(touchDamage);
                 _currentTime = touchDamageCooldown;

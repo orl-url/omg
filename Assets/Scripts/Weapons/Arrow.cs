@@ -29,7 +29,7 @@ namespace Weapons
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.TryGetComponent(out Enemy.Enemy enemy))
+            if (col.TryGetComponent(out Enemy enemy))
             {
                 enemy.TakeDamage(damage);
                 Destroy(gameObject);

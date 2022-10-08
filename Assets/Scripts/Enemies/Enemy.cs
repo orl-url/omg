@@ -1,7 +1,7 @@
 using Common;
 using UnityEngine;
 
-namespace Enemy
+namespace Enemies
 {
     public class Enemy : MonoBehaviour
     {
