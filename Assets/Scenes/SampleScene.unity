@@ -244,14 +244,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22001bcea912d384e8f7ce5789b1a378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy:
-  - {fileID: 1848791217753964363, guid: b91e9a2abe0b0dc48bb970a82680de5c, type: 3}
-  spawnPoint:
+  spawnPoints:
   - {fileID: 81517786}
   - {fileID: 1754984304}
-  - {fileID: 0}
-  - {fileID: 0}
-  startTimeBtwSpawns: 11.84
+  waves:
+  - {fileID: 11400000, guid: 762251c297bf2474b83d6ee342b17223, type: 2}
+  - {fileID: 11400000, guid: 32a9b37ea2b1b0b4a8599bfc7406de37, type: 2}
 --- !u!4 &336513280
 Transform:
   m_ObjectHideFlags: 0
@@ -852,7 +850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1848791217753964361, guid: b91e9a2abe0b0dc48bb970a82680de5c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.1
+      value: -3.69
       objectReference: {fileID: 0}
     - target: {fileID: 1848791217753964361, guid: b91e9a2abe0b0dc48bb970a82680de5c, type: 3}
       propertyPath: m_LocalPosition.y

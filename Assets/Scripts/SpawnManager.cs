@@ -1,36 +1,65 @@
 using UnityEngine;
 
-namespace Enemies
+public class SpawnManager : MonoBehaviour
 {
-    public class SpawnManager : MonoBehaviour
+    public Transform[] spawnPoints;
+    public EnemyWave[] waves;
+
+    private EnemyWave _currentWave;
+    private int _waveIndex = -1;
+    private int _enemyCount;
+    private float _timer;
+    private float _cooldown;
+
+    private void Start()
     {
-        public GameObject[] enemy;
-        public Transform[] spawnPoint;
+        NextWave();
+    }
 
-        private int _rand;
-        private int _randPosition;
-        public float startTimeBtwSpawns;
-        private float _timeBtwSpawns;
+    private void Update()
+    {
+        if (_currentWave is null)
+            return;
+        
+        UpdateWave();
+    }
 
-        private void Start()
+    private void NextWave()
+    {
+        _waveIndex++;
+
+        if (_waveIndex >= waves.Length)
         {
-            _timeBtwSpawns = startTimeBtwSpawns;
-        }
-
-        private void Update()
-        {
-            if (_timeBtwSpawns <= 0)
-            {
-                _rand = UnityEngine.Random.Range(0, enemy.Length);
-                _randPosition = UnityEngine.Random.Range(0, spawnPoint.Length);
-                Instantiate(enemy[_rand], spawnPoint[_randPosition].transform.position, Quaternion.identity);
-                _timeBtwSpawns = startTimeBtwSpawns;
-            }
-            else
-            {
-                _timeBtwSpawns -= Time.deltaTime;
-            }
+            _currentWave = null;
+            return;
         }
         
+        _currentWave = waves[_waveIndex];
+        _cooldown = _currentWave.Cooldown;
+        _enemyCount = 0;
+    }
+
+    private void UpdateWave()
+    {
+        _timer += Time.deltaTime;
+
+        if (_timer >= _cooldown)
+        {
+            _timer -= _cooldown;
+            SpawnEnemy();
+        }
+
+        if (_enemyCount >= _currentWave.Count)
+        {
+            NextWave();
+        }
+    }
+
+    private void SpawnEnemy()
+    {
+        var spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Instantiate(_currentWave.EnemyPref, spawnPoint.transform);
+        
+        _enemyCount++;
     }
 }
