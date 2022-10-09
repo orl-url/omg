@@ -27,8 +27,8 @@ namespace Enemies
 
         private void Move()
         {
-            var direction = (((_target - (Vector2)transform.position)* (speed*Time.fixedDeltaTime)).normalized)/15;
-            _rb.MovePosition((Vector2) _rb.transform.position + direction );
+            var direction = (_target - (Vector2)transform.position);
+            _rb.MovePosition((Vector2) _rb.transform.position + (direction* (speed*Time.fixedDeltaTime)).normalized/15);
         }
     }
 }
