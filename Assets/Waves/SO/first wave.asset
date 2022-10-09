@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3edcbafe6ce07be45b36f1767fcc1db6, type: 3}
-  m_Name: boss wave
+  m_Name: first wave
   m_EditorClassIdentifier: 
-  enemyPref: {fileID: 3996347709324476331, guid: 259c8431188cb0242bd3d7e98ebf7718, type: 3}
-  count: 4
-  cooldown: 1
+  steps:
+  - enemyPref: {fileID: 1848791217753964363, guid: b91e9a2abe0b0dc48bb970a82680de5c, type: 3}
+    count: 3
+    cooldown: 1

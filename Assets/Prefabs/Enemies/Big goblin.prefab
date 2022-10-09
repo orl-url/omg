@@ -280,11 +280,11 @@ GameObject:
   - component: {fileID: 3996347709324476329}
   - component: {fileID: 3996347709324476328}
   - component: {fileID: 3996347709324476325}
-  - component: {fileID: 3996347709324476331}
   - component: {fileID: 3996347709324476330}
+  - component: {fileID: 3996347709324476331}
   m_Layer: 0
   m_Name: Big goblin
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -417,6 +417,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 3996347709255288067}
+--- !u!114 &3996347709324476330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3996347709324476324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bdec7190c248e04c8e74067106ff606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.68
+  castle: {fileID: 4191459899447728146, guid: 1121272aa9306184694360155ce7d2de, type: 3}
 --- !u!114 &3996347709324476331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,16 +449,3 @@ MonoBehaviour:
   coinsForDeath: 3
   coin: {fileID: 2886252648418929232, guid: 8d025b89b420db94da3a8ec1a8b548d5, type: 3}
   healthBar: {fileID: 3996347709324476325}
---- !u!114 &3996347709324476330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3996347709324476324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bdec7190c248e04c8e74067106ff606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.68

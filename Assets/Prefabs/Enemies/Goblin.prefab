@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1848791217246404269}
   - component: {fileID: 1848791217246404274}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 1848791217321642072}
   - component: {fileID: 1848791217321642078}
   - component: {fileID: 1848791217321642073}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 595709426}
   - component: {fileID: 1848791217753964364}
   - component: {fileID: 1848791217753964365}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Goblin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 1848791218365827928}
   - component: {fileID: 1848791218365827931}
   - component: {fileID: 1848791218365827930}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
