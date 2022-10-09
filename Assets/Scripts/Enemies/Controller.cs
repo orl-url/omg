@@ -1,4 +1,7 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Enemies
 {
@@ -6,25 +9,26 @@ namespace Enemies
     {
         //private Transform _castle;
         public float speed = 1f;
+        public GameObject castle;
+        
         private Rigidbody2D _rb;
-        private Vector2 _velocity;
+        private Vector2 _target;
 
         private void Start()
         {
             _rb = GetComponent<Rigidbody2D>();
-            _velocity = new Vector2(0, -1);
-            //_castle = GameObject.FindGameObjectWithTag("Castle").GetComponent<Transform>();
-        }
-
-        private void Move()
-        {
-            _rb.MovePosition(_rb.position + _velocity * Time.fixedDeltaTime);   
+            _target = castle.transform.position;
         }
 
         private void FixedUpdate()
         {
             Move();
-            //transform.position = Vector2.MoveTowards(transform.position, _castle.position, speed * Time.deltaTime);
+        }
+
+        private void Move()
+        {
+            var direction = (((_target - (Vector2)transform.position)* (speed*Time.fixedDeltaTime)).normalized)/15;
+            _rb.MovePosition((Vector2) _rb.transform.position + direction );
         }
     }
 }

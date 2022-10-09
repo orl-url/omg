@@ -23,8 +23,8 @@ namespace Weapons
 
         private void Move()
         {
-            var target = transform.position + transform.up * (speed * Time.deltaTime);
-            _rb.MovePosition(target);
+            var moveForward = transform.position + transform.up * (speed * Time.deltaTime);
+            _rb.MovePosition(moveForward);
         }
 
         private void OnTriggerEnter2D(Collider2D col)

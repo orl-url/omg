@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edcbafe6ce07be45b36f1767fcc1db6, type: 3}
   m_Name: first wave
   m_EditorClassIdentifier: 
-  EnemyPref: {fileID: 1848791217753964365, guid: b91e9a2abe0b0dc48bb970a82680de5c, type: 3}
-  Count: 3
-  Cooldown: 2
+  enemyPref: {fileID: 1848791217753964365, guid: b91e9a2abe0b0dc48bb970a82680de5c, type: 3}
+  count: 23
+  cooldown: 1.14

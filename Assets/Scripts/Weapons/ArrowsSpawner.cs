@@ -7,7 +7,6 @@ namespace Buildings.Castle
     {
         public float cooldown = 2f;
         private float _currentTime = 1f;
-        // private Vector2 _castlePos;
 
         public GameObject arrow;
         public Transform arrowShotPoint;
@@ -24,15 +23,6 @@ namespace Buildings.Castle
         }
 
         // Arrow spawn.
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.gameObject.TryGetComponent(out Enemy _))
-            {
-                
-            }
-        }
-
         private void OnTriggerStay2D(Collider2D other)
         {
             if (_currentTime >= 0)

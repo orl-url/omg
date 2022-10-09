@@ -4,12 +4,16 @@ public class SpawnManager : MonoBehaviour
 {
     public Transform[] spawnPoints;
     public EnemyWave[] waves;
+    public GameObject castle;
 
+    private Vector2 _target;
     private EnemyWave _currentWave;
+    
     private int _waveIndex = -1;
     private int _enemyCount;
     private float _timer;
     private float _cooldown;
+    private int _prefabOffset;
 
     private void Start()
     {
@@ -35,7 +39,7 @@ public class SpawnManager : MonoBehaviour
         }
         
         _currentWave = waves[_waveIndex];
-        _cooldown = _currentWave.Cooldown;
+        _cooldown = _currentWave.cooldown;
         _enemyCount = 0;
     }
 
@@ -49,7 +53,7 @@ public class SpawnManager : MonoBehaviour
             SpawnEnemy();
         }
 
-        if (_enemyCount >= _currentWave.Count)
+        if (_enemyCount >= _currentWave.count)
         {
             NextWave();
         }
@@ -58,7 +62,7 @@ public class SpawnManager : MonoBehaviour
     private void SpawnEnemy()
     {
         var spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        Instantiate(_currentWave.EnemyPref, spawnPoint.transform);
+        Instantiate(_currentWave.enemyPref, spawnPoint.transform);
         
         _enemyCount++;
     }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edcbafe6ce07be45b36f1767fcc1db6, type: 3}
   m_Name: boss wave
   m_EditorClassIdentifier: 
-  EnemyPref: {fileID: 3996347709324476331, guid: 259c8431188cb0242bd3d7e98ebf7718, type: 3}
-  Count: 3
-  Cooldown: 3
+  enemyPref: {fileID: 3996347709324476331, guid: 259c8431188cb0242bd3d7e98ebf7718, type: 3}
+  count: 4
+  cooldown: 1
