@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using Enemies;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WavesManager : MonoBehaviour
@@ -5,10 +8,14 @@ public class WavesManager : MonoBehaviour
     public Transform[] spawnPoints;
     public EnemyWave[] waves;
     public GameObject castle;
+    public List<Enemy> enemyList;
 
     private Vector2 _target;
     private EnemyWave _currentWave;
     private EnemyWave.Step _currentStep;
+    private Enemy _newEnemy;
+    
+
     
     private int _waveIndex = -1;
     private int _stepIndex = -1;
@@ -18,6 +25,7 @@ public class WavesManager : MonoBehaviour
 
     private void Start()
     {
+        // _enemy = gameObject.AddComponent<Enemy>();
         NextWave();
     }
 
@@ -85,8 +93,8 @@ public class WavesManager : MonoBehaviour
     private void SpawnEnemy()
     {
         var spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        Instantiate(_currentStep.enemyPref, spawnPoint.transform);
-        
+        _newEnemy =  Instantiate(_currentStep.enemyPref, spawnPoint.transform);
+        _newEnemy.Init(this);
         _enemyCount++;
     }
 }

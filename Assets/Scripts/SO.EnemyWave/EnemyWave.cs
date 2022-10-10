@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Enemies;
 using UnityEngine;
 
 
@@ -10,7 +11,7 @@ public class EnemyWave : ScriptableObject
     [System.Serializable]
     public class Step
     {
-        public GameObject enemyPref;
+        public Enemy enemyPref;
         public int count;
         public float cooldown;
     }

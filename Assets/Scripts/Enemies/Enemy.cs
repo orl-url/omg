@@ -1,3 +1,4 @@
+using System;
 using Common;
 using UnityEngine;
 
@@ -15,8 +16,13 @@ namespace Enemies
         
         public GameObject coin;
         public HealthBar healthBar;
+        private WavesManager _wavesManager;
 
-
+        public void Init(WavesManager manager)
+        {
+            this._wavesManager = manager;
+            _wavesManager.enemyList.Add(this);
+        }
         // Timer for cooldown.
         private void Start()
         {
@@ -49,6 +55,7 @@ namespace Enemies
             if (health <= 0f)
             {
                 Destroy(gameObject);
+                _wavesManager.enemyList.Remove(this);
                 DropCoin();
                 
             }
