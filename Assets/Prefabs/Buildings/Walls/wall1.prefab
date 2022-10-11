@@ -163,7 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   touchDamageCooldown: 0.1
-  touchDamage: 0.1
+  touchDamage: 0.01
   healthBar: {fileID: -6914365907297912827}
 --- !u!1 &2408161801392100914
 GameObject:

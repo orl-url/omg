@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Enemies;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class WavesManager : MonoBehaviour
@@ -15,8 +14,6 @@ public class WavesManager : MonoBehaviour
     private EnemyWave.Step _currentStep;
     private Enemy _newEnemy;
     
-
-    
     private int _waveIndex = -1;
     private int _stepIndex = -1;
     private int _enemyCount;
@@ -25,7 +22,6 @@ public class WavesManager : MonoBehaviour
 
     private void Start()
     {
-        // _enemy = gameObject.AddComponent<Enemy>();
         NextWave();
     }
 
@@ -61,14 +57,12 @@ public class WavesManager : MonoBehaviour
         var steps = _currentWave.steps;
         if (_stepIndex >= steps.Count)
         {
-            // while (GameObject.FindWithTag("Enemy") != null)
-           
             _currentStep = null;
             _stepIndex = -1;
-            NextWave();
+
+            NextWave();     // След. волна, если степы закончились
             return;
         }
-        print(_stepIndex);        
         _currentStep = steps[_stepIndex];
         _cooldown = _currentStep.cooldown;
         _enemyCount = 0;
