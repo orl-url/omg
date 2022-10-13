@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steps:
   - enemyPref: {fileID: 1848791217753964365, guid: b91e9a2abe0b0dc48bb970a82680de5c, type: 3}
-    count: 5
-    cooldown: 1.93
+    count: 3
+    cooldown: 1.75

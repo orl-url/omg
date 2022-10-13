@@ -8,6 +8,7 @@ public class WavesManager : MonoBehaviour
     public EnemyWave[] waves;
     public GameObject castle;
     public List<Enemy> enemyList;
+    public CardManager cardManager;
 
     private Vector2 _target;
     private EnemyWave _currentWave;
@@ -20,6 +21,8 @@ public class WavesManager : MonoBehaviour
     private float _timer;
     private float _cooldown;
 
+    private int _stepInd;
+
     private void Start()
     {
         NextWave();
@@ -27,6 +30,8 @@ public class WavesManager : MonoBehaviour
 
     private void Update()
     {
+        Next();
+    
         if (_currentWave is null)
             return;
         if (_currentStep is null)
@@ -34,6 +39,16 @@ public class WavesManager : MonoBehaviour
         
         UpdateStep();
     }
+    private void Next()
+    {
+        if (enemyList.Count == 0 && _currentStep == null && _waveIndex < 100)
+        {
+            Time.timeScale = 0;
+            cardManager.CreateCards();
+            // NextWave(); Надо вызвать из кардменеджера
+        }
+    }
+    
     
     private void NextWave()
     {
@@ -55,20 +70,28 @@ public class WavesManager : MonoBehaviour
         _stepIndex++;
         
         var steps = _currentWave.steps;
-        if (_stepIndex >= steps.Count)
-        {
-            _currentStep = null;
-            _stepIndex = -1;
+        
+            if (_stepIndex >= steps.Count)
+           
+            {
+                _currentStep = null;
+                // print(_currentStep);
+                _stepIndex = -1;
+                // print(_stepIndex);
+                
+                // Time.timeScale = 0;
+                // cardManager.cardCanvas.SetActive(true);
 
-            NextWave();     // След. волна, если степы закончились
-            return;
-        }
+                // NextWave();     Этот метод надо вызвать из кард менеджера
+                return;
+            }
+            
         _currentStep = steps[_stepIndex];
         _cooldown = _currentStep.cooldown;
         _enemyCount = 0;
     }
 
-    private void UpdateStep()
+    private void UpdateStep()  // Вызывается каждый кадр
     {
         _timer += Time.deltaTime;
     

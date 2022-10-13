@@ -53,3 +53,6 @@ TagManager:
   - name: Enemy
     uniqueID: 1502584355
     locked: 0
+  - name: CardManager
+    uniqueID: 2663459691
+    locked: 0
