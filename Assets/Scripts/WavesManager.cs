@@ -20,6 +20,7 @@ public class WavesManager : MonoBehaviour
     private int _enemyCount;
     private float _timer;
     private float _cooldown;
+    private int _counter = 0;
 
     private int _stepInd;
 
@@ -30,10 +31,12 @@ public class WavesManager : MonoBehaviour
 
     private void Update()
     {
-        Next();
     
         if (_currentWave is null)
             return;
+        
+        if (_counter < 1) {Next();}
+
         if (_currentStep is null)
             return;
         
@@ -41,16 +44,17 @@ public class WavesManager : MonoBehaviour
     }
     private void Next()
     {
-        if (enemyList.Count == 0 && _currentStep == null && _waveIndex < 100)
+        if (enemyList.Count == 0 &&  _currentStep == null && _waveIndex < 100)
         {
-            Time.timeScale = 0;
-            cardManager.CreateCards();
-            // NextWave(); Надо вызвать из кардменеджера
+          {
+                cardManager.CreateCards();
+                _counter += 1;
+          }
         }
     }
     
     
-    private void NextWave()
+    public void NextWave()
     {
         _waveIndex++;
 
@@ -75,14 +79,7 @@ public class WavesManager : MonoBehaviour
            
             {
                 _currentStep = null;
-                // print(_currentStep);
                 _stepIndex = -1;
-                // print(_stepIndex);
-                
-                // Time.timeScale = 0;
-                // cardManager.cardCanvas.SetActive(true);
-
-                // NextWave();     Этот метод надо вызвать из кард менеджера
                 return;
             }
             
