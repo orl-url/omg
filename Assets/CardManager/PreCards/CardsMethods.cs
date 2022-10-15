@@ -7,16 +7,28 @@ using Weapons;
 
 public class CardsMethods : MonoBehaviour
 {
-    public Arrow arrow;
-    public ArrowsSpawner castle;
+    private Arrow arrow;
+    private ArrowsSpawner castle;
 
+    private CardManager _cardManager;
+
+    public void Init(CardManager cardManager)
+    {
+        _cardManager = cardManager;
+    }
+    
     public void AddArrowDamage()
     {
-        arrow.damage = 10;
+        _cardManager.arrow.damage = 10;
     }
 
+    public void OnClickPlayGame()
+    {
+        _cardManager.ContinueGame();
+    }
+    
     public void ChangeCastleAttackSpeed()
     {
-        castle.cooldown = 0.3f;
+        _cardManager.arrowsSpawner.cooldown = 0.3f;
     }
 }

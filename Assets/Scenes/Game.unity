@@ -1125,11 +1125,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wavesManager: {fileID: 336513279}
-  cardsMethods: {fileID: 1579471963}
   cardsCanvas: {fileID: 1617361144}
-  leftCard: {fileID: 7153848273996182346, guid: 199d6c7d1774e974cadaffc5d8c1d38a, type: 3}
-  midCard: {fileID: 7153848273996182346, guid: 090645987416d754181991a02d065df4, type: 3}
-  rightCard: {fileID: 7153848273996182346, guid: 00bd5ef2c817b3246b45427f69884d5f, type: 3}
+  card: {fileID: 7153848273996182346, guid: 199d6c7d1774e974cadaffc5d8c1d38a, type: 3}
+  arrow: {fileID: 8921613001485531378, guid: d546ce879422f7e4985015dfdabda8fc, type: 3}
+  arrowsSpawner: {fileID: 1517840469}
 --- !u!4 &1579471962
 Transform:
   m_ObjectHideFlags: 0
@@ -1158,8 +1157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2a6c3700be92f343a53e8c789bc804b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrow: {fileID: 8921613001485531378, guid: d546ce879422f7e4985015dfdabda8fc, type: 3}
-  castle: {fileID: 1517840469}
 --- !u!1 &1584567550
 GameObject:
   m_ObjectHideFlags: 0
