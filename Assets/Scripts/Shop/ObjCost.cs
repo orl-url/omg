@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ObjCost : MonoBehaviour
 {
+    [Range(1, 50)]
     public int cost;
     public Score score;
 

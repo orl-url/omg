@@ -469,6 +469,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 5
   score: {fileID: 372444229}
+--- !u!114 &482736385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482736378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee80fd4571ba9964493c42b65c4becd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wall: {fileID: 1106878817, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
+  objCost: {fileID: 482736384}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,9 +1141,9 @@ MonoBehaviour:
   wavesManager: {fileID: 336513279}
   cardsMethods: {fileID: 1579471963}
   cardsCanvas: {fileID: 1617361144}
-  leftCard: {fileID: 7153848273996182346, guid: 199d6c7d1774e974cadaffc5d8c1d38a, type: 3}
-  midCard: {fileID: 7153848273996182346, guid: 090645987416d754181991a02d065df4, type: 3}
-  rightCard: {fileID: 7153848273996182346, guid: 00bd5ef2c817b3246b45427f69884d5f, type: 3}
+  card: {fileID: 7153848273996182346, guid: 199d6c7d1774e974cadaffc5d8c1d38a, type: 3}
+  arrow: {fileID: 401199191934561981, guid: d546ce879422f7e4985015dfdabda8fc, type: 3}
+  arrowsSpawner: {fileID: 1517840469}
 --- !u!4 &1579471962
 Transform:
   m_ObjectHideFlags: 0
@@ -1158,8 +1172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2a6c3700be92f343a53e8c789bc804b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrow: {fileID: 8921613001485531378, guid: d546ce879422f7e4985015dfdabda8fc, type: 3}
-  castle: {fileID: 1517840469}
 --- !u!1 &1584567550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,7 +1216,7 @@ GameObject:
   - component: {fileID: 1617361146}
   - component: {fileID: 1617361145}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CardCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1606,7 +1618,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2078995525}
-  - component: {fileID: 2078995526}
   m_Layer: 0
   m_Name: Shop
   m_TagString: Untagged
@@ -1630,20 +1641,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2078995526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078995524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee80fd4571ba9964493c42b65c4becd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wall: {fileID: 1106878817, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
-  objCost: {fileID: 482736384}
 --- !u!1001 &4191459899321618148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1811,15 +1808,15 @@ PrefabInstance:
     - target: {fileID: 5475571021252887940, guid: 829a9d7ba33a67147a2cd82ab55b79a9, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2078995526}
+      objectReference: {fileID: 0}
     - target: {fileID: 5475571021252887940, guid: 829a9d7ba33a67147a2cd82ab55b79a9, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2078995526}
+      objectReference: {fileID: 0}
     - target: {fileID: 5475571021252887940, guid: 829a9d7ba33a67147a2cd82ab55b79a9, type: 3}
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2078995526}
+      objectReference: {fileID: 482736385}
     - target: {fileID: 5475571021252887940, guid: 829a9d7ba33a67147a2cd82ab55b79a9, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetMousePos
@@ -1830,7 +1827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5475571021252887940, guid: 829a9d7ba33a67147a2cd82ab55b79a9, type: 3}
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetStartingPos
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5475571021252887940, guid: 829a9d7ba33a67147a2cd82ab55b79a9, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

@@ -1,22 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
-using Buildings;
+using System;
 using Buildings.Castle;
 using UnityEngine;
 using Weapons;
 
 public class CardsMethods : MonoBehaviour
 {
-    public Arrow arrow;
-    public ArrowsSpawner castle;
+    private CardManager _cardManager;
+    private Arrow _arrow;
 
+    private void Start()
+    {
+        _cardManager.Init(this);
+    }
+
+    public void Init(CardManager cardManager)
+    {
+        _cardManager = cardManager;
+        _arrow = cardManager.arrow;
+    }
+    
     public void AddArrowDamage()
     {
-        arrow.damage = 10;
+        print("someessss");
+        _cardManager.arrow.damage = 10;
     }
 
     public void ChangeCastleAttackSpeed()
     {
-        castle.cooldown = 0.3f;
+        _cardManager.arrowsSpawner.cooldown = 0.3f;
     }
 }

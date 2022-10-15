@@ -1,29 +1,42 @@
 using System;
+using Buildings.Castle;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Weapons;
 
 public class CardManager : MonoBehaviour
 {
     public WavesManager wavesManager;
-    public CardsMethods cardsMethods;
+    private CardsMethods cardsMethods;
     public GameObject cardsCanvas;
-    public GameObject leftCard;
-    public GameObject midCard;
-    public GameObject rightCard;
-
+    public CardsMethods card;
+    public Arrow arrow;
+    public ArrowsSpawner arrowsSpawner;
 
     // ReSharper disable Unity.PerformanceAnalysis
+
+    public void Init(CardsMethods cardsMethods)
+    {
+        this.cardsMethods = cardsMethods;
+    }
+    
+    private void Start()
+    {
+        card.Init(this);
+        cardsMethods.Init(this);
+    }
+
     public void CreateCards()
     {
-        Time.timeScale = 0; 
-        
-        var leftButton = Instantiate(leftCard, leftCard.transform.position = new Vector2(-700, 0), Quaternion.identity);
+        Time.timeScale = 0;
+
+        var leftButton = Instantiate(card, card.transform.position = new Vector2(-700, 0), Quaternion.identity);
         leftButton.transform.SetParent(cardsCanvas.transform, false);
 
-        var midButton = Instantiate(midCard, midCard.transform.position = new Vector2(0, 0), Quaternion.identity);
+        var midButton = Instantiate(card, card.transform.position = new Vector2(0, 0), Quaternion.identity);
         midButton.transform.SetParent(cardsCanvas.transform, false);
         
-        var rightButton = Instantiate(rightCard, rightCard.transform.position = new Vector2(700, 0), Quaternion.identity);
+        var rightButton = Instantiate(card, card.transform.position = new Vector2(700, 0), Quaternion.identity);
         rightButton.transform.SetParent(cardsCanvas.transform, false);
         
         cardsCanvas.SetActive(true);
@@ -32,8 +45,8 @@ public class CardManager : MonoBehaviour
     
     public void OnClickPlayGame()
     {
-        cardsMethods.AddArrowDamage();
-        cardsMethods.ChangeCastleAttackSpeed();
+        // cardsMethods.AddArrowDamage();
+        // cardsMethods.ChangeCastleAttackSpeed();
         
         cardsCanvas.SetActive(false);
         Time.timeScale = 1;
