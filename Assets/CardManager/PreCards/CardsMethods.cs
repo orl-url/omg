@@ -9,19 +9,19 @@ public class CardsMethods : MonoBehaviour
 {
     private Arrow _arrow;
     private ArrowsSpawner _castle;
-    
+
     private CardManager _cardManager;
 
     public void Init(CardManager cardManager)
     {
         _cardManager = cardManager;
     }
-
-    public void RABOTAI()
-    {
-        _cardManager.OnClickPlayGame();
-    }
     
+    public void OnClickPlayGame()
+    {
+        _cardManager.ContinueGame();
+    }
+
     public void AddArrowDamage()
     {
         _cardManager.arrow.damage = 10;
