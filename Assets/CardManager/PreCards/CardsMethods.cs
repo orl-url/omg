@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Buildings;
 using Buildings.Castle;
 using UnityEngine;
 using Weapons;
