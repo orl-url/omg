@@ -7,9 +7,9 @@ public class WavesManager : MonoBehaviour
     public Transform[] spawnPoints;
     public EnemyWave[] waves;
     public GameObject castle;
-    public List<Enemy> enemyList;
     public CardManager cardManager;
 
+    public List<Enemy> enemyList;
     private Vector2 _target;
     private EnemyWave _currentWave;
     private EnemyWave.Step _currentStep;

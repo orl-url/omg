@@ -14,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Solid
+  - 
   - 
   - 
   - 
@@ -55,4 +55,7 @@ TagManager:
     locked: 0
   - name: CardManager
     uniqueID: 2663459691
+    locked: 0
+  - name: Shop
+    uniqueID: 1969044361
     locked: 0
