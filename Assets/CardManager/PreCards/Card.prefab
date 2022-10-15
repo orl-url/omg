@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7153848273996182350}
   - component: {fileID: 7153848273996182349}
   - component: {fileID: 7153848273996182348}
-  - component: {fileID: -5841862152854754748}
+  - component: {fileID: 127905383374038740}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -123,9 +123,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5841862152854754748}
+      - m_Target: {fileID: 127905383374038740}
         m_TargetAssemblyTypeName: CardsMethods, Assembly-CSharp
-        m_MethodName: RABOTAI
+        m_MethodName: AddArrowDamage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -135,7 +135,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-5841862152854754748
+--- !u!114 &127905383374038740
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

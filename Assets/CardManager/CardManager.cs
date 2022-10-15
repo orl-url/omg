@@ -1,26 +1,37 @@
+using System;
 using Buildings.Castle;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Weapons;
 
 public class CardManager : MonoBehaviour
 {
     public WavesManager wavesManager;
-    private CardsMethods _cardsMethods;
+    private CardsMethods cardsMethods;
     public GameObject cardsCanvas;
-    public GameObject card;
+    public CardsMethods card;
     public Arrow arrow;
     public ArrowsSpawner arrowsSpawner;
 
     // ReSharper disable Unity.PerformanceAnalysis
+
+    public void Init(CardsMethods cardsMethods)
+    {
+        this.cardsMethods = cardsMethods;
+    }
+    
+    private void Start()
+    {
+        card.Init(this);
+        cardsMethods.Init(this);
+    }
+
     public void CreateCards()
     {
-        Time.timeScale = 0; 
-        
+        Time.timeScale = 0;
+
         var leftButton = Instantiate(card, card.transform.position = new Vector2(-700, 0), Quaternion.identity);
         leftButton.transform.SetParent(cardsCanvas.transform, false);
-        _cardsMethods = leftButton.GetComponent<CardsMethods>();
-        _cardsMethods.Init(this);
-        
 
         var midButton = Instantiate(card, card.transform.position = new Vector2(0, 0), Quaternion.identity);
         midButton.transform.SetParent(cardsCanvas.transform, false);
@@ -34,9 +45,8 @@ public class CardManager : MonoBehaviour
     
     public void OnClickPlayGame()
     {
-        // card.gameObject.GetComponent<CardsMethods>().AddArrowDamage();
-        _cardsMethods.AddArrowDamage();
-        _cardsMethods.ChangeCastleAttackSpeed();
+        // cardsMethods.AddArrowDamage();
+        // cardsMethods.ChangeCastleAttackSpeed();
         
         cardsCanvas.SetActive(false);
         Time.timeScale = 1;

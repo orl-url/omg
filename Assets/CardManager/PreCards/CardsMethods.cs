@@ -1,29 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
-using Buildings;
+using System;
 using Buildings.Castle;
 using UnityEngine;
 using Weapons;
 
 public class CardsMethods : MonoBehaviour
 {
-    private Arrow _arrow;
-    private ArrowsSpawner _castle;
-    
     private CardManager _cardManager;
+    private Arrow _arrow;
+
+    private void Start()
+    {
+        _cardManager.Init(this);
+    }
 
     public void Init(CardManager cardManager)
     {
         _cardManager = cardManager;
-    }
-
-    public void RABOTAI()
-    {
-        _cardManager.OnClickPlayGame();
+        _arrow = cardManager.arrow;
     }
     
     public void AddArrowDamage()
     {
+        print("someessss");
         _cardManager.arrow.damage = 10;
     }
 
