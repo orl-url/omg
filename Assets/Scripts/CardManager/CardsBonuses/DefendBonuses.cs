@@ -9,9 +9,14 @@ public class DefendBonuses : MonoBehaviour
         _cardManager = cardManager;
     }
 
-    public void IncreaseWallHp()
+    public void IncreaseWallsHp() // Увеличивает хп новых стен.
     {
-        _cardManager.wall.GetComponentInChildren<Building>().health = 2;
-        _cardManager.PlayGame();
+        _cardManager.wall.health += 1f;
+        DeletingCards();
+    }
+    private void DeletingCards()
+    {
+        _cardManager.CardFromList("defend");
+        _cardManager.DeleteCards();
     }
 }

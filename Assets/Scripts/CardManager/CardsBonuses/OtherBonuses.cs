@@ -9,4 +9,10 @@ public class OtherBonuses : MonoBehaviour
     {
         _cardManager = cardManager;
     }
+
+    public void IncreaseCoinsValue()
+    {
+        _cardManager.enemy.coinsForDeath += 1;
+    }
+
 }

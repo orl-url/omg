@@ -9,13 +9,21 @@ public class AttackBonuses : MonoBehaviour
         _cardManager = cardManager;
     }
     
-    public void AddArrowDamage()
+    public void IncreaseArrowDamage()
     {
+        _cardManager.arrow.damage += 0.5f;
+        DeletingCards();
     }
     
-    public void ChangeCastleAttackSpeed()
+    public void IncreaseCastleAttackSpeed()
     {
         _cardManager.arrowsSpawner.cooldown = 0.3f;
-        _cardManager.PlayGame();
+        DeletingCards();
+    }
+
+    private void DeletingCards()
+    {
+        _cardManager.CardFromList("attack");
+        _cardManager.DeleteCards();
     }
 }

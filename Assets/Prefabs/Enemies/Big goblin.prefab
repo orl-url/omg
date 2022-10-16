@@ -446,6 +446,6 @@ MonoBehaviour:
   health: 2
   damage: 0.4
   attackCooldown: 1.5
-  coinsForDeath: 3
+  coinsForDeath: 1
   coin: {fileID: 2886252648418929232, guid: 8d025b89b420db94da3a8ec1a8b548d5, type: 3}
   healthBar: {fileID: 3996347709324476325}

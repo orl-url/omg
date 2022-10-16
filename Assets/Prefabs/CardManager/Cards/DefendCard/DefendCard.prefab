@@ -125,7 +125,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1225410525046585552}
         m_TargetAssemblyTypeName: DefendBonuses, Assembly-CSharp
-        m_MethodName: IncreaseWallHp
+        m_MethodName: IncreaseWallsHp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

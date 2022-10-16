@@ -17,5 +17,5 @@ MonoBehaviour:
     count: 1
     cooldown: 0.84
   - enemyPref: {fileID: 1848791217753964365, guid: b91e9a2abe0b0dc48bb970a82680de5c, type: 3}
-    count: 1
+    count: 0
     cooldown: 0.84
