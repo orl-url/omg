@@ -13,70 +13,68 @@ public class CardManager : MonoBehaviour
     public List <GameObject> defCards;
     public List <GameObject> otherCards;
 
+    public List <GameObject> currentCardPsrefs;
+
     public Arrow arrow;
     public ArrowsSpawner arrowsSpawner;
     public Building wall;
     public Enemy enemy;
 
-    private GameObject _currentAtkCard;
-    private GameObject _currentDefCard;
-    private GameObject _currentOtherCard;
 
-    private GameObject _leftButton;
-    private GameObject _middleButton;
-    private GameObject _rightButton;
+    [SerializeField] private List <GameObject> cardOnScreen = new List<GameObject>();
 
         // ReSharper disable Unity.PerformanceAnalysis
     public void CreateCards()
     {
         Time.timeScale = 0;
-
-        _currentAtkCard = atkCards[Random.Range(0, atkCards.Count)];
-        _leftButton = Instantiate(_currentAtkCard, _currentAtkCard.transform.position = new Vector2(-700, 0), Quaternion.identity);
-        _leftButton.transform.SetParent(cardsCanvas.transform, false);
-        var attackBonuses = _leftButton.gameObject.GetComponent<AttackBonuses>();
-        attackBonuses.Init(this);
         
         
-        _currentDefCard = defCards[Random.Range(0, defCards.Count)];
-        _middleButton = Instantiate(_currentDefCard, _currentDefCard.transform.position = new Vector2(0, 0), Quaternion.identity);
-        _middleButton.transform.SetParent(cardsCanvas.transform, false);
-        var defendBonuses = _middleButton.gameObject.GetComponent<DefendBonuses>();
-        defendBonuses.Init(this);
+        var card = CreateCard(atkCards, -700, 0);
+        card.gameObject.GetComponent<AttackBonuses>().Init(this);
         
+        card = CreateCard(defCards,0, 0);
+        card.gameObject.GetComponent<DefendBonuses>().Init(this);
         
-        _currentOtherCard = otherCards[Random.Range(0, otherCards.Count)];
-         _rightButton = Instantiate(_currentOtherCard, _currentOtherCard.transform.position = new Vector2(700, 0), Quaternion.identity);
-         _rightButton.transform.SetParent(cardsCanvas.transform, false);
-        var otherBonuses = _rightButton.gameObject.GetComponent<OtherBonuses>();
-        otherBonuses.Init(this);
+        card = CreateCard(otherCards, 700, 0);
+        card.gameObject.GetComponent<OtherBonuses>().Init(this);
         
         cardsCanvas.SetActive(true);
     }
 
+    private GameObject  CreateCard(List <GameObject> cards , float x, float y)
+    {
+        var currentCardPref = cards[Random.Range(0, cards.Count)];
+        currentCardPsrefs.Add(currentCardPref);
+
+        var card = Instantiate(currentCardPref, currentCardPref.transform.position = new Vector2(x, y), Quaternion.identity);
+        card.transform.SetParent(cardsCanvas.transform, false);
+        cardOnScreen.Add(card);
+        return card;
+    }
 
     public void CardFromList(string typeCard)
     {
         switch (typeCard)
         {
             case "attack":
-                atkCards.Remove(_currentAtkCard);
+                atkCards.Remove(currentCardPsrefs[0]);
                 break;
             case "defend":
-                defCards.Remove(_currentDefCard);
+                defCards.Remove(currentCardPsrefs[1]);
                 break;
             case "other":
-                otherCards.Remove(_currentOtherCard);
+                otherCards.Remove(currentCardPsrefs[2]);
                 break;
         }
-        atkCards.Remove(_currentAtkCard);
     }
 
     public void DeleteCards()
     {
-        Destroy(_leftButton);
-        Destroy(_middleButton);
-        // Destroy();
+        for (var i = 0; i <= cardOnScreen.Count - 1; i++)
+        {
+            Destroy(cardOnScreen[i]);
+        }
+        
         PlayGame();
     }
 
