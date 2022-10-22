@@ -6,25 +6,20 @@ public static class BuildingsStats
 {
     public class AnyBuilding
     {
-        // Castle.
         public float hp;
         public float touchDamage;
         public float touchDamageCooldown;
         public float attackRadius;
 
-        // Weapon
         public float arrowDamage;
         public float arrowSpeed;
         public float attackCooldown;
         
-        
-        private static readonly List<AnyBuilding> AllWallTypes = new List<AnyBuilding>();
+        public float cost;
 
-        private static List<AnyBuilding> AddAllWallTypesToList()
-        {
-            AllWallTypes.Add(WoodenWall);
-            return AllWallTypes;
-        }
+        public static List<Building> allBuildings = new List<Building>();
+
+        private static readonly List<AnyBuilding> AllWallTypes = new List<AnyBuilding>();
 
         public static readonly AnyBuilding WoodenWall = new AnyBuilding()
         {
@@ -32,8 +27,9 @@ public static class BuildingsStats
             touchDamage = 0.5f,
             touchDamageCooldown = 1f,
             
+            cost = 5f,
         };
-        
+
         public static readonly AnyBuilding Castle = new AnyBuilding()
         {
             // Castle.
@@ -47,5 +43,11 @@ public static class BuildingsStats
             arrowSpeed = 10f,
             arrowDamage = 0.5f,
         };
+
+        private static List<AnyBuilding> AddAllWallTypesToList()
+        {
+            AllWallTypes.Add(WoodenWall);
+            return AllWallTypes;
+        }
     }
 }

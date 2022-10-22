@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 2
-  value: 7
+  gold: 7
 --- !u!1 &7376894220540001604
 GameObject:
   m_ObjectHideFlags: 0

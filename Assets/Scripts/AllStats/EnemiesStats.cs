@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Enemies;
+using UnityEngine;
 
 public static class EnemiesStats
 {
@@ -14,6 +16,8 @@ public static class EnemiesStats
 
         public float speed;
 
+        public static readonly List<Enemy> allEnemies = new List<Enemy>();
+
         private static readonly List<AnyGoblin> AllGoblinsTypes = new List<AnyGoblin>();
 
         public static readonly AnyGoblin LittleGoblin = new AnyGoblin()
@@ -21,7 +25,7 @@ public static class EnemiesStats
             health = 0.5f,
             damage = 1,
             attackCooldown = 1,
-            coinsForDeath = 1,
+            coinsForDeath = 2,
             speed = 1f,
         };
 

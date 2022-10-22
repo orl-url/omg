@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Enemies;
 using UnityEngine;
+using static EnemiesStats;
 
 public class WavesManager : MonoBehaviour
 {
@@ -112,15 +113,16 @@ public class WavesManager : MonoBehaviour
         
         if (_currentStep.enemyPref.name == "LittleGoblin")
         {
-            _newEnemy.Init(this, EnemiesStats.AnyGoblin.LittleGoblin);
-            _newEnemy.GetComponent<Controller>().Init(EnemiesStats.AnyGoblin.LittleGoblin);
+            _newEnemy.Init(this, AnyGoblin.LittleGoblin);
+            _newEnemy.GetComponent<Controller>().Init(AnyGoblin.LittleGoblin);
         }
         else if (_currentStep.enemyPref.name == "BigGoblin")
         {
-            _newEnemy.Init(this, EnemiesStats.AnyGoblin.BossGoblin);
-            _newEnemy.GetComponent<Controller>().Init(EnemiesStats.AnyGoblin.BossGoblin);
+            _newEnemy.Init(this, AnyGoblin.BossGoblin);
+            _newEnemy.GetComponent<Controller>().Init(AnyGoblin.BossGoblin);
         }
         
+        AnyGoblin.allEnemies.Add(_newEnemy);
         _enemyCount++;
     }
 }
