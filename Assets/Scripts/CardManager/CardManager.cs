@@ -1,8 +1,11 @@
+using System;
 using System.Collections.Generic;
+using Mono.Cecil;
 using UnityEngine;
 using Weapons;
+using Random = UnityEngine.Random;
 
-public class CardManager : MonoBehaviour
+public class CardManager : MonoBehaviour    
 {
     public WavesManager wavesManager;
     public GameObject cardsCanvas;
@@ -11,19 +14,22 @@ public class CardManager : MonoBehaviour
     public List <GameObject> otherCards;
 
     public List <GameObject> currentCardPsrefs;
-
-    public Arrow arrow;
-    public ArrowsSpawner arrowsSpawner;
-    public Building wall;
-
-
+    
+    
+    internal ArrowsSpawner arrowsSpawner;
     [SerializeField] private List <GameObject> cardOnScreen = new List<GameObject>();
+    [SerializeField] private List<GameObject> usedCards;
 
-        // ReSharper disable Unity.PerformanceAnalysis
+    public void Init(ArrowsSpawner arrowsSpawner)
+    {
+        this.arrowsSpawner = arrowsSpawner;
+    }
+
+
+    // ReSharper disable Unity.PerformanceAnalysis
     public void CreateCards()
     {
         Time.timeScale = 0;
-        
         
         var card = CreateCard(atkCards, -700, 0);
         card.gameObject.GetComponent<AttackBonuses>().Init(this);
@@ -64,11 +70,14 @@ public class CardManager : MonoBehaviour
         }
     }
 
-    public void DestroyCards()
+    public void MoveCardsToListOfUsed()
     {
         for (var i = 0; i <= cardOnScreen.Count - 1; i++)
         {
-            Destroy(cardOnScreen[i]);
+            usedCards = cardOnScreen;
+            gameObject.transform.position = new Vector2(-1000, 1000);
+
+            // Destroy(cardOnScreen[i]);
         }
         
         PlayGame();
@@ -76,7 +85,7 @@ public class CardManager : MonoBehaviour
 
     private void PlayGame()
     {
-        cardsCanvas.SetActive(false);
+        // cardsCanvas.SetActive(false);
         Time.timeScale = 1;
         wavesManager.NextWave();
     }

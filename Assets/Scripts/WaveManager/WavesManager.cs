@@ -29,31 +29,6 @@ public class WavesManager : MonoBehaviour
         NextWave();
     }
 
-    private void Update()
-    {
-    
-        if (_currentWave is null)
-            return;
-        
-        if (_counter < 1) {Next();}
-
-        if (_currentStep is null)
-            return;
-        
-        UpdateStep();
-    }
-    private void Next()
-    {
-        if (enemyList.Count == 0 &&  _currentStep == null && _waveIndex < 100)
-        {
-          {
-                cardManager.CreateCards();
-                _counter += 1;
-          }
-        }
-    }
-    
-    
     public void NextWave()
     {
         _waveIndex++;
@@ -65,30 +40,56 @@ public class WavesManager : MonoBehaviour
         }
         
         _currentWave = waves[_waveIndex];
-        NextStep();
-        }
+        NextWaveStep();
+    }
 
-    // ReSharper disable Unity.PerformanceAnalysis
-    private void NextStep()
+    private void NextWaveStep() // Если закончились враги на сцене.
     {
         _stepIndex++;
         
         var steps = _currentWave.steps;
         
-            if (_stepIndex >= steps.Count)
+        if (_stepIndex >= steps.Count)
            
-            {
-                _currentStep = null;
-                _stepIndex = -1;
-                return;
-            }
+        {
+            _currentStep = null;
+            _stepIndex = -1;
+            return;
+        }
             
         _currentStep = steps[_stepIndex];
         _cooldown = _currentStep.cooldown;
         _enemyCount = 0;
     }
 
-    private void UpdateStep()  // Вызывается каждый кадр
+    private void Update()
+    {
+        if (_currentWave is null)
+            return;
+        
+        if (_counter <= _waveIndex) {Next();}
+
+        if (_currentStep is null) // Пройдены все степы волны.
+            return;
+        
+        UpdateWaveStep(); // Проверяет количество врагов на сцене.
+    }
+
+    private void Next()
+    {
+        if (enemyList.Count == 0 &&  _currentStep == null && _waveIndex < 100)
+        {
+            {
+                cardManager.CreateCards();
+                _counter += 1;
+            }
+        }
+    }
+
+
+    // ReSharper disable Unity.PerformanceAnalysis
+
+    private void UpdateWaveStep()  // Вызывается каждый кадр
     {
         _timer += Time.deltaTime;
     
@@ -100,7 +101,7 @@ public class WavesManager : MonoBehaviour
     
         if (_enemyCount >= _currentStep.count)
         {
-            NextStep();
+            NextWaveStep();
         }
     }
     

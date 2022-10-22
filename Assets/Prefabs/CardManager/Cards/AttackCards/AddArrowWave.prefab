@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7153848273996182348}
   - component: {fileID: 3528656648030087568}
   m_Layer: 5
-  m_Name: IncreaseCastleAttackSpeed
+  m_Name: AddArrowWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3528656648030087568}
         m_TargetAssemblyTypeName: AttackBonuses, Assembly-CSharp
-        m_MethodName: IncreaseCastleAttackSpeed
+        m_MethodName: AddArrowWave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

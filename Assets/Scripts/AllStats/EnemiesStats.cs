@@ -27,8 +27,8 @@ public static class EnemiesStats
 
         public static readonly AnyGoblin BossGoblin = new AnyGoblin()
         {
-            health = 2f,
-            damage = 0.5f,
+            health = 0.5f,
+            damage = 0.001f,
             attackCooldown = 0.2f,
             coinsForDeath = 1,
             speed = 2f,

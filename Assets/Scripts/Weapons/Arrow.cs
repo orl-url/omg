@@ -21,7 +21,7 @@ namespace Weapons
 
         private void Start()
         {
-            this.Init(AnyBuilding.caslle);
+            this.Init(AnyBuilding.Castle);
         }
 
         private void Awake()

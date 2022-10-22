@@ -22,11 +22,11 @@ public static class BuildingsStats
 
         private static List<AnyBuilding> AddAllWallTypesToList()
         {
-            AllWallTypes.Add(woodenWall);
+            AllWallTypes.Add(WoodenWall);
             return AllWallTypes;
         }
 
-        public static AnyBuilding woodenWall = new AnyBuilding()
+        public static readonly AnyBuilding WoodenWall = new AnyBuilding()
         {
             hp = 1,
             touchDamage = 0.5f,
@@ -34,20 +34,18 @@ public static class BuildingsStats
             
         };
         
-        public static AnyBuilding caslle = new AnyBuilding()
+        public static readonly AnyBuilding Castle = new AnyBuilding()
         {
             // Castle.
-            hp = 0f,
+            hp = 1f,
             touchDamage = 0f,
             touchDamageCooldown = 0.5f,
-            attackRadius = 5f,
+            attackRadius = 15f,
             attackCooldown = 0.5f,
 
             // Weapon.
             arrowSpeed = 10f,
             arrowDamage = 0.5f,
         };
-
-
     }
 }

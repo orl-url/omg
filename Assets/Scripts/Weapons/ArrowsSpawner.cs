@@ -1,6 +1,9 @@
+using System;
 using Enemies;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using static BuildingsStats;
+using static BonusesStats;
 
 public class ArrowsSpawner : MonoBehaviour
 {
@@ -8,20 +11,22 @@ public class ArrowsSpawner : MonoBehaviour
     
     private float _currentTime = 1f;
 
+    public CardManager cardManager;
     public GameObject arrow;
     public Transform arrowShotPoint;
 
-    
     private void Init(AnyBuilding castle)
     {
         _cooldown = castle.attackCooldown;
+        gameObject.GetComponent<CircleCollider2D>().radius = castle.attackRadius;
     }
-    
-    
+
     private void Start()
     {
-        this.Init(AnyBuilding.caslle);
+        this.Init(AnyBuilding.Castle);
         _currentTime = _cooldown;
+        this.cardManager.Init(this);
+
     }
 
     private void Update()

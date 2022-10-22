@@ -10,12 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3edcbafe6ce07be45b36f1767fcc1db6, type: 3}
-  m_Name: second wave 1
+  m_Name: 3rd wave
   m_EditorClassIdentifier: 
   steps:
   - enemyPref: {fileID: 1848791217753964365, guid: b91e9a2abe0b0dc48bb970a82680de5c, type: 3}
-    count: 1
-    cooldown: 0.27
-  - enemyPref: {fileID: 3996347709324476331, guid: 259c8431188cb0242bd3d7e98ebf7718, type: 3}
-    count: 1
-    cooldown: 0.27
+    count: 26
+    cooldown: 0.42

@@ -23,11 +23,10 @@ public class Building : MonoBehaviour
         _attackRadius = anyBuilding.attackRadius;
 
     }
-
     
     private void Start()
     {
-        this.Init(AnyBuilding.caslle);
+        this.Init(AnyBuilding.Castle);
         _currentTime = _touchDamageCooldown;
     }
 

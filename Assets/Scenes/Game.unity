@@ -195,6 +195,7 @@ MonoBehaviour:
   waves:
   - {fileID: 11400000, guid: 762251c297bf2474b83d6ee342b17223, type: 2}
   - {fileID: 11400000, guid: be722da16ba710c40955574665a38510, type: 2}
+  - {fileID: 11400000, guid: d5336059fefae7349a4baa7bb33f58f6, type: 2}
   castle: {fileID: 1734226516}
   cardManager: {fileID: 1579471961}
   enemyList: []
@@ -867,17 +868,6 @@ Transform:
   m_Father: {fileID: 336513280}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1517840469 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4191459899247502945, guid: 1121272aa9306184694360155ce7d2de, type: 3}
-  m_PrefabInstance: {fileID: 4191459899321618148}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42be339323a4bc045936ef6d019b8eac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1561293797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,16 +1002,13 @@ MonoBehaviour:
   cardsCanvas: {fileID: 1617361144}
   atkCards:
   - {fileID: 7153848273996182346, guid: 9c347b034831dc8469b358a7f8b836dd, type: 3}
-  - {fileID: 7153848273996182346, guid: 1b099d23f02dc91448180cca6a253e46, type: 3}
   defCards:
   - {fileID: 7153848273996182346, guid: 89c6b350da1acf747b591bc223e1e4cb, type: 3}
   otherCards:
   - {fileID: 7153848273996182346, guid: 1b666d9d2b4207442a5d24758bbd500e, type: 3}
   currentCardPsrefs: []
-  arrow: {fileID: 8921613001485531378, guid: d546ce879422f7e4985015dfdabda8fc, type: 3}
-  arrowsSpawner: {fileID: 1517840469}
-  wall: {fileID: 1106878817, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
   cardOnScreen: []
+  usedCards: []
 --- !u!4 &1579471962
 Transform:
   m_ObjectHideFlags: 0
@@ -1426,10 +1413,22 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1734226518}
+    - target: {fileID: 1734226522, guid: 1121272aa9306184694360155ce7d2de, type: 3}
+      propertyPath: attackBonuses
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4191459898625899816, guid: 1121272aa9306184694360155ce7d2de, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 4191459899247502945, guid: 1121272aa9306184694360155ce7d2de, type: 3}
+      propertyPath: cardManager
+      value: 
+      objectReference: {fileID: 1579471961}
+    - target: {fileID: 4191459899247502945, guid: 1121272aa9306184694360155ce7d2de, type: 3}
+      propertyPath: attackBonuses
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4191459899447728146, guid: 1121272aa9306184694360155ce7d2de, type: 3}
       propertyPath: m_Name
       value: Castle

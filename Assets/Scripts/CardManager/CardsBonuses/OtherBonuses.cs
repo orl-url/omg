@@ -18,7 +18,7 @@ public class OtherBonuses : MonoBehaviour
     private void DeletingCards()
     {
         _cardManager.DeleteCardFromList("other");
-        _cardManager.DestroyCards();
+        _cardManager.MoveCardsToListOfUsed();
     }
 
 }

@@ -15,7 +15,8 @@ public class CastleBuilding : MonoBehaviour
     private float _touchDamageCooldown;
     private float _currentTime;
 
-    
+    // public AttackBonuses attackBonuses;
+
     public HealthBar healthBar;
 
     private void Init(AnyBuilding castle)
@@ -30,7 +31,7 @@ public class CastleBuilding : MonoBehaviour
     
     private void Start()
     {
-        this.Init(AnyBuilding.caslle);
+        this.Init(AnyBuilding.Castle);
         _currentTime = _touchDamageCooldown;
     }
 
