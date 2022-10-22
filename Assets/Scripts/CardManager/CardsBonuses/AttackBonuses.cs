@@ -1,4 +1,5 @@
 using UnityEngine;
+using static BuildingsStats; 
 
 public class AttackBonuses : MonoBehaviour
 {
@@ -11,19 +12,19 @@ public class AttackBonuses : MonoBehaviour
     
     public void IncreaseArrowDamage()
     {
-        _cardManager.arrow.damage += 0.5f;
+        AnyBuilding.caslle.arrowDamage += 0.5f;
         DeletingCards();
     }
     
     public void IncreaseCastleAttackSpeed()
     {
-        _cardManager.arrowsSpawner.cooldown = 0.3f;
+        AnyBuilding.caslle.attackCooldown -= 0.15f;
         DeletingCards();
     }
 
     private void DeletingCards()
     {
-        _cardManager.CardFromList("attack");
-        _cardManager.DeleteCards();
+        _cardManager.DeleteCardFromList("attack");
+        _cardManager.DestroyCards();
     }
 }

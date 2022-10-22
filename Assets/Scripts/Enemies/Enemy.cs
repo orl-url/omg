@@ -2,14 +2,15 @@ using System;
 using Common;
 using UnityEngine;
 
+
 namespace Enemies
 {
     public class Enemy : MonoBehaviour
     {
-        public float health = 1f;
-        public float damage = 0.25f;
-        public float attackCooldown = 0.3f;
-        public int coinsForDeath;
+        private float _health;
+        private float _damage;
+        private float _attackCooldown;
+        private float _coinsForDeath;
    
         
         private float _currentTime;
@@ -18,15 +19,21 @@ namespace Enemies
         public HealthBar healthBar;
         private WavesManager _wavesManager;
 
-        public void Init(WavesManager manager)
+        public void Init(WavesManager manager, EnemiesStats.AnyGoblin anyGoblin)
         {
-            this._wavesManager = manager;
+            _wavesManager = manager;
             _wavesManager.enemyList.Add(this);
+            
+            _health = anyGoblin.health;
+            _damage = anyGoblin.damage;
+            _attackCooldown = anyGoblin.attackCooldown;
+            _coinsForDeath = anyGoblin.coinsForDeath;
         }
+        
         // Timer for cooldown.
         private void Start()
         {
-            _currentTime = attackCooldown;
+            _currentTime = _attackCooldown;
         }
         
         private void Update()
@@ -39,20 +46,27 @@ namespace Enemies
 
         public void OnCollisionStay2D(Collision2D col)
         {
-            if (col.gameObject.TryGetComponent (out Buildings.Building building) && _currentTime <= 0f)
+            if (col.gameObject.TryGetComponent (out Building building) && _currentTime <= 0f)
             {
-                building.TakeDamage(damage);
-                _currentTime = attackCooldown;
+                building.TakeDamage(_damage);
+                
+                _currentTime = _attackCooldown;
+            }
+            else if (col.gameObject.TryGetComponent (out CastleBuilding castle) && _currentTime <= 0f)
+            {
+                castle.TakeDamage(_damage);
+                
+                _currentTime = _attackCooldown;
             }
         }
 
         // Damage from castle or some building.
-        public void TakeDamage(float Damage)
+        public void TakeDamage(float damage)
         {
             
-            health -= Damage;
-            healthBar.HealthUpdate(health);
-            if (health <= 0f)
+            _health -= damage;
+            healthBar.HealthUpdate(_health);
+            if (_health <= 0f)
             {
                 Destroy(gameObject);
                 _wavesManager.enemyList.Remove(this);
@@ -63,7 +77,7 @@ namespace Enemies
         
        private void DropCoin()
        {
-           for (int x = 1; x <= this.coinsForDeath; x++)
+           for (int x = 1; x <= this._coinsForDeath; x++)
            {
                Instantiate(coin, transform.position, Quaternion.identity);
            }

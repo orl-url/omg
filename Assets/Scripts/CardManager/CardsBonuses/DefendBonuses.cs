@@ -1,4 +1,3 @@
-using Buildings;
 using UnityEngine;
 
 public class DefendBonuses : MonoBehaviour
@@ -11,12 +10,12 @@ public class DefendBonuses : MonoBehaviour
 
     public void IncreaseWallsHp() // Увеличивает хп новых стен.
     {
-        _cardManager.wall.health += 1f;
+        // _cardManager.wall.health += 1f;
         DeletingCards();
     }
     private void DeletingCards()
     {
-        _cardManager.CardFromList("defend");
-        _cardManager.DeleteCards();
+        _cardManager.DeleteCardFromList("defend");
+        _cardManager.DestroyCards();
     }
 }

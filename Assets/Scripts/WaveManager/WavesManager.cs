@@ -107,8 +107,19 @@ public class WavesManager : MonoBehaviour
     private void SpawnEnemy()
     {
         var spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        _newEnemy =  Instantiate(_currentStep.enemyPref, spawnPoint.transform);
-        _newEnemy.Init(this);
+        _newEnemy = Instantiate(_currentStep.enemyPref, spawnPoint.transform);
+        
+        if (_currentStep.enemyPref.name == "LittleGoblin")
+        {
+            _newEnemy.Init(this, EnemiesStats.AnyGoblin.LittleGoblin);
+            _newEnemy.GetComponent<Controller>().Init(EnemiesStats.AnyGoblin.LittleGoblin);
+        }
+        else if (_currentStep.enemyPref.name == "BigGoblin")
+        {
+            _newEnemy.Init(this, EnemiesStats.AnyGoblin.BossGoblin);
+            _newEnemy.GetComponent<Controller>().Init(EnemiesStats.AnyGoblin.BossGoblin);
+        }
+        
         _enemyCount++;
     }
 }

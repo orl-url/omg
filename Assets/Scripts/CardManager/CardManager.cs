@@ -1,7 +1,4 @@
 using System.Collections.Generic;
-using Buildings;
-using Buildings.Castle;
-using Enemies;
 using UnityEngine;
 using Weapons;
 
@@ -18,7 +15,6 @@ public class CardManager : MonoBehaviour
     public Arrow arrow;
     public ArrowsSpawner arrowsSpawner;
     public Building wall;
-    public Enemy enemy;
 
 
     [SerializeField] private List <GameObject> cardOnScreen = new List<GameObject>();
@@ -52,7 +48,7 @@ public class CardManager : MonoBehaviour
         return card;
     }
 
-    public void CardFromList(string typeCard)
+    public void DeleteCardFromList(string typeCard)
     {
         switch (typeCard)
         {
@@ -68,7 +64,7 @@ public class CardManager : MonoBehaviour
         }
     }
 
-    public void DeleteCards()
+    public void DestroyCards()
     {
         for (var i = 0; i <= cardOnScreen.Count - 1; i++)
         {

@@ -1,10 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
 using Common;
 using Enemies;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using static BuildingsStats;
 
-public class Building : MonoBehaviour
+public class CastleBuilding : MonoBehaviour
 {
     private float _hp;
     private float _damage;
@@ -13,15 +14,17 @@ public class Building : MonoBehaviour
     private float _touchDamage;
     private float _touchDamageCooldown;
     private float _currentTime;
+
     
     public HealthBar healthBar;
 
-    private void Init(AnyBuilding anyBuilding)
+    private void Init(AnyBuilding castle)
     {
-        _hp = anyBuilding.hp;
-        _damage = anyBuilding.arrowDamage;
-        _attackRadius = anyBuilding.attackRadius;
-
+        _hp = castle.hp;
+        _damage = castle.arrowDamage;
+        _attackRadius = castle.attackRadius;
+        _touchDamage = castle.touchDamage;
+        _touchDamageCooldown = castle.touchDamageCooldown;
     }
 
     

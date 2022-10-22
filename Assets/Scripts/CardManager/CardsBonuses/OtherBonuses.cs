@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static EnemiesStats;
 
 public class OtherBonuses : MonoBehaviour
 {
@@ -12,7 +11,14 @@ public class OtherBonuses : MonoBehaviour
 
     public void IncreaseCoinsValue()
     {
-        _cardManager.enemy.coinsForDeath += 1;
+        AnyGoblin.DoForAllElements("coinsForDeath", 5);
+        DeletingCards();
+    }
+    
+    private void DeletingCards()
+    {
+        _cardManager.DeleteCardFromList("other");
+        _cardManager.DestroyCards();
     }
 
 }
