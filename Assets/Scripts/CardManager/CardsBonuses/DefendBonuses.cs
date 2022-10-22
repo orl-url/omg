@@ -16,6 +16,6 @@ public class DefendBonuses : MonoBehaviour
     private void DeletingCards()
     {
         _cardManager.DeleteCardFromList("defend");
-        _cardManager.MoveCardsToListOfUsed();
+        _cardManager.DestroyCards();
     }
 }

@@ -18,7 +18,17 @@ public class OtherBonuses : MonoBehaviour
     private void DeletingCards()
     {
         _cardManager.DeleteCardFromList("other");
-        _cardManager.MoveCardsToListOfUsed();
+        _cardManager.DestroyCards();
     }
 
+    public void SlowDownTheEnemy()
+    {
+        AnyGoblin.DoForAllElements("speed", -0.9f);
+        DeletingCards();
+    }
+
+    public void IncreaseDamageAreaRadius()
+    {
+        BuildingsStats.AnyBuilding.Castle.attackRadius *= 2;
+    }
 }

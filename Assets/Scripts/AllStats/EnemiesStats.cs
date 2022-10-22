@@ -69,7 +69,7 @@ public static class EnemiesStats
                     }
                     case "speed":
                     {
-                        goblin.speed += value;
+                        goblin.speed *= value;
                         break;
                     }
                 }

@@ -37,7 +37,7 @@ public static class BuildingsStats
         public static readonly AnyBuilding Castle = new AnyBuilding()
         {
             // Castle.
-            hp = 1f,
+            hp = 1,
             touchDamage = 0f,
             touchDamageCooldown = 0.5f,
             attackRadius = 15f,

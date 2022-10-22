@@ -11,4 +11,9 @@ public class ObjCost : MonoBehaviour
     {
         score.score -= cost;
     }
+
+    public void Init()
+    {
+        print("some");
+    }
 }

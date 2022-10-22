@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Mono.Cecil;
+using UnityEditor;
 using UnityEngine;
 using Weapons;
 using Random = UnityEngine.Random;
@@ -14,8 +15,8 @@ public class CardManager : MonoBehaviour
     public List <GameObject> otherCards;
 
     public List <GameObject> currentCardPsrefs;
-    
-    
+
+    private List<Progress.Item> _bufferForUsedCard;
     internal ArrowsSpawner arrowsSpawner;
     [SerializeField] private List <GameObject> cardOnScreen = new List<GameObject>();
     [SerializeField] private List<GameObject> usedCards;
@@ -66,18 +67,15 @@ public class CardManager : MonoBehaviour
                 break;
             case "other":
                 otherCards.Remove(currentCardPsrefs[2]);
-                break;
+            break;
         }
     }
 
-    public void MoveCardsToListOfUsed()
+    public void DestroyCards()
     {
         for (var i = 0; i <= cardOnScreen.Count - 1; i++)
         {
-            usedCards = cardOnScreen;
-            gameObject.transform.position = new Vector2(-1000, 1000);
-
-            // Destroy(cardOnScreen[i]);
+            Destroy(cardOnScreen[i]);
         }
         
         PlayGame();
@@ -88,5 +86,10 @@ public class CardManager : MonoBehaviour
         // cardsCanvas.SetActive(false);
         Time.timeScale = 1;
         wavesManager.NextWave();
+    }
+
+    private void MoveComponentFromCard()
+    {
+        
     }
 }

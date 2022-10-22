@@ -1,23 +1,37 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using TotalMoney;
+using Unity.Mathematics;
+using UnityEditor.AdaptivePerformance.Editor;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlacingObj : MonoBehaviour
 {
     public Building wall;
     public GameObject canvas;
-    
-    public void SetMousePos(Transform obj)
+    public GameObject woodenWall;
+
+    private Transform _mousePos;
+    private Building _wallTemp;
+
+    public Vector3 GetMousePosition()
     {
-       obj.position =  (Vector2) Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+        return mousePos;
     }
 
-    public void PlaceWall(GameObject obj)
+    public void OnMouseDrag()
     {
-        print("some");
-        var newWall =Instantiate(wall, obj.transform.position, Quaternion.identity);
-        // newWall.transform.SetParent(canvas.transform, true);
+        {
+            
+        }
+        
+        _wallTemp = Instantiate(wall, GetMousePosition(), quaternion.identity);
+    }
+
+    public void MovingCreatedWall()
+    {
+        _wallTemp.transform.position = GetMousePosition();
+
     }
 }
