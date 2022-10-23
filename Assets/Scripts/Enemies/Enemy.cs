@@ -1,6 +1,7 @@
 using System;
 using Common;
 using UnityEngine;
+using static EnemiesStats;
 
 
 namespace Enemies
@@ -19,7 +20,7 @@ namespace Enemies
         public HealthBar healthBar;
         private WavesManager _wavesManager;
 
-        public void Init(WavesManager manager, EnemiesStats.AnyGoblin anyGoblin)
+        public void Init(WavesManager manager, AnyGoblin anyGoblin)
         {
             _wavesManager = manager;
             _wavesManager.enemyList.Add(this);

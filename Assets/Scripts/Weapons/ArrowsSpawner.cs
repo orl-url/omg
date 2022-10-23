@@ -13,22 +13,23 @@ public class ArrowsSpawner : MonoBehaviour
     private readonly float _arrowWaveCooldown = arrowWaveCooldown ;
     private float _currentArrowWaveTime = 1f;
 
-    public CardManager cardManager;
+    // public CardManager cardManager;
     public GameObject arrow;
     public Transform arrowShotPoint;
 
-    private void Init(AnyBuilding castle)
+    public void Init(AnyBuilding anyBuilding)
     {
-        _cooldown = castle.attackCooldown;
-        gameObject.GetComponent<CircleCollider2D>().radius = castle.attackRadius;
+        _cooldown = anyBuilding.attackCooldown;
+        gameObject.GetComponent<CircleCollider2D>().radius = anyBuilding.attackRadius;
     }
 
     private void Start()
     {
-        this.Init(AnyBuilding.Castle);
+        if (gameObject.name == "CastleDamageArea")
+        {
+            Init(AnyBuilding.Castle);
+        }
         _currentTime = _cooldown;
-        this.cardManager.Init(this);
-
     }
 
     private void Update()
@@ -37,7 +38,7 @@ public class ArrowsSpawner : MonoBehaviour
         
         _currentArrowWaveTime -= Time.deltaTime;
         
-        if (flagCreateArrowWave == true && _currentArrowWaveTime <= 0)
+        if (gameObject.name == "CastleDamageArea" && flagCreateArrowWave == true && _currentArrowWaveTime <= 0)
         {
             this.CreateArrowWave();
             _currentArrowWaveTime = _arrowWaveCooldown;
@@ -71,8 +72,6 @@ public class ArrowsSpawner : MonoBehaviour
         var i = 0;
         while (i < 12)
         {
-            print(flagCreateArrowWave);
-            var position = transform.position;
             var rotation = Quaternion.Euler(0, 0, 30 * i);
             Instantiate(arrow, arrowShotPoint.position, rotation);
             i++;

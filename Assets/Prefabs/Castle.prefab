@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 4191459899247502944}
   - component: {fileID: 4191459899247502945}
   m_Layer: 0
-  m_Name: Damage Area
+  m_Name: CastleDamageArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,7 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42be339323a4bc045936ef6d019b8eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardManager: {fileID: 0}
   arrow: {fileID: 401199191934561981, guid: d546ce879422f7e4985015dfdabda8fc, type: 3}
   arrowShotPoint: {fileID: 4191459900221694388}
 --- !u!1 &4191459899447728146
@@ -244,7 +243,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1713324141
   m_SortingLayer: 2
-  m_SortingOrder: 5
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5b5c4ac614ed13a4f8932baeee20233e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

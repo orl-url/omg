@@ -17,25 +17,18 @@ public class Building : MonoBehaviour
     public HealthBar healthBar;
 
     
-    private void Init(AnyBuilding anyBuilding)
+    public void Init(AnyBuilding anyBuilding)
     {
         _hp = anyBuilding.hp;
         _damage = anyBuilding.arrowDamage;
+        _attackCooldown = anyBuilding.attackCooldown;
         _attackRadius = anyBuilding.attackRadius;
-
-    }
-
-    private void takeTypeOfTheBuilding()
-    {
-        // foreach (var name in COLLECTION)
-        {
-            
-        }
+        _touchDamage = anyBuilding.touchDamage;
+        _touchDamageCooldown = anyBuilding.touchDamageCooldown;
     }
     
     private void Start()
     {
-        this.Init(AnyBuilding.Castle);
         _currentTime = _touchDamageCooldown;
     }
 

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6914365907297912827}
   - component: {fileID: 1106878817}
   m_Layer: 0
-  m_Name: WoodenWall
+  m_Name: StoneWall
   m_TagString: WoodenWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: e4b9fd234537e0041a37374fd05f5d65, type: 3}
-  m_Color: {r: 0.5849056, g: 0.3167319, b: 0.3167319, a: 1}
+  m_Color: {r: 0.45225972, g: 0.45026702, b: 0.4528302, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,7 +97,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309110393500675991}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

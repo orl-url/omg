@@ -14,17 +14,12 @@ public class CardManager : MonoBehaviour
     public List <GameObject> defCards;
     public List <GameObject> otherCards;
 
-    public List <GameObject> currentCardPsrefs;
+    public List <GameObject> currentCardPrefs;
 
     private List<Progress.Item> _bufferForUsedCard;
-    internal ArrowsSpawner arrowsSpawner;
+    // internal ArrowsSpawner arrowsSpawner;
     [SerializeField] private List <GameObject> cardOnScreen = new List<GameObject>();
     [SerializeField] private List<GameObject> usedCards;
-
-    public void Init(ArrowsSpawner arrowsSpawner)
-    {
-        this.arrowsSpawner = arrowsSpawner;
-    }
 
 
     // ReSharper disable Unity.PerformanceAnalysis
@@ -47,7 +42,7 @@ public class CardManager : MonoBehaviour
     private GameObject  CreateCard(List <GameObject> cards , float x, float y)
     {
         var currentCardPref = cards[Random.Range(0, cards.Count)];
-        currentCardPsrefs.Add(currentCardPref);
+        currentCardPrefs.Add(currentCardPref);
 
         var card = Instantiate(currentCardPref, currentCardPref.transform.position = new Vector2(x, y), Quaternion.identity);
         card.transform.SetParent(cardsCanvas.transform, false);
@@ -60,13 +55,13 @@ public class CardManager : MonoBehaviour
         switch (typeCard)
         {
             case "attack":
-                atkCards.Remove(currentCardPsrefs[0]);
+                atkCards.Remove(currentCardPrefs[0]);
                 break;
             case "defend":
-                defCards.Remove(currentCardPsrefs[1]);
+                defCards.Remove(currentCardPrefs[1]);
                 break;
             case "other":
-                otherCards.Remove(currentCardPsrefs[2]);
+                otherCards.Remove(currentCardPrefs[2]);
             break;
         }
     }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using static EnemiesStats;
+using static BuildingsStats;
 
 public class OtherBonuses : MonoBehaviour
 {
@@ -23,12 +24,13 @@ public class OtherBonuses : MonoBehaviour
 
     public void SlowDownTheEnemy()
     {
-        AnyGoblin.DoForAllElements("speed", -0.9f);
+        AnyGoblin.DoForAllElements("speed", 0.9f);
         DeletingCards();
     }
 
     public void IncreaseDamageAreaRadius()
     {
-        BuildingsStats.AnyBuilding.Castle.attackRadius *= 2;
+        AnyBuilding.Castle.attackRadius *= 2;
+        DeletingCards();
     }
 }

@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public static class BuildingsStats
 {
@@ -19,16 +17,7 @@ public static class BuildingsStats
 
         public static List<Building> allBuildings = new List<Building>();
 
-        private static readonly List<AnyBuilding> AllWallTypes = new List<AnyBuilding>();
-
-        public static readonly AnyBuilding WoodenWall = new AnyBuilding()
-        {
-            hp = 1,
-            touchDamage = 0.5f,
-            touchDamageCooldown = 1f,
-            
-            cost = 5f,
-        };
+        public static readonly List<AnyBuilding> AllWallTypes = new List<AnyBuilding>();
 
         public static readonly AnyBuilding Castle = new AnyBuilding()
         {
@@ -44,10 +33,56 @@ public static class BuildingsStats
             arrowDamage = 0.5f,
         };
 
-        private static List<AnyBuilding> AddAllWallTypesToList()
+        public static readonly AnyBuilding ArcherTower = new AnyBuilding()
+        {
+            hp = 1,
+            attackRadius = 5f,
+            attackCooldown = 0.5f,
+
+            cost = 10f,
+            // arrowSpeed = 10f,
+            // arrowDamage = 0.5f,
+        };
+
+        public static readonly AnyBuilding WoodenWall = new AnyBuilding()
+        {
+            hp = 1,
+            touchDamage = 0.5f,
+            touchDamageCooldown = 1f,
+            
+            cost = 5f,
+        };
+        
+        public static readonly AnyBuilding StoneWall = new AnyBuilding()
+        {
+            hp = 2,
+            touchDamage = 1f,
+            touchDamageCooldown = 0.5f,
+            
+            cost = 5f,
+        };
+
+
+        public static List<AnyBuilding> AddAllBuildingsTypesToList()
         {
             AllWallTypes.Add(WoodenWall);
             return AllWallTypes;
+        }
+
+        public static void DoForAllBuildings(string fieldName, float value)
+        {
+            var allBui = AddAllBuildingsTypesToList();
+            foreach (var building in allBui)
+            {
+                switch (fieldName)
+                {
+                    case "AttackRadius":
+                    {
+                        building.attackCooldown *= 2;
+                        break;
+                    }
+                }
+            }
         }
     }
 }
