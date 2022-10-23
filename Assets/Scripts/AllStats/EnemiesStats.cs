@@ -22,7 +22,7 @@ public static class EnemiesStats
 
         public static readonly AnyGoblin LittleGoblin = new AnyGoblin()
         {
-            health = 0.5f,
+            health = 1f,
             damage = 1,
             attackCooldown = 1,
             coinsForDeath = 2,

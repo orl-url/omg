@@ -7,13 +7,13 @@ namespace TotalMoney
     public class TotalGold : MonoBehaviour
     {
         public Text scoreDisplay;
-        public PlacingObj shop;
+        public PlacingObj woodenWall;
         
         internal float goldStorage;
 
         private void Start()
         {
-            shop.Init(this);
+            woodenWall.Init(this);
         }
 
         private void FixedUpdate()

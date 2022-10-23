@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Castle
   - Enemy
-  - Building
+  - WoodenWall
+  - ArcherTower
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - shopMask
   - 
   - 
   - 

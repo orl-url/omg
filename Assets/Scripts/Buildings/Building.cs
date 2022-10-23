@@ -16,12 +16,21 @@ public class Building : MonoBehaviour
     
     public HealthBar healthBar;
 
+    
     private void Init(AnyBuilding anyBuilding)
     {
         _hp = anyBuilding.hp;
         _damage = anyBuilding.arrowDamage;
         _attackRadius = anyBuilding.attackRadius;
 
+    }
+
+    private void takeTypeOfTheBuilding()
+    {
+        // foreach (var name in COLLECTION)
+        {
+            
+        }
     }
     
     private void Start()

@@ -151,7 +151,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4.19
+  m_Radius: 0.0001
 --- !u!114 &4191459899247502945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42be339323a4bc045936ef6d019b8eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 1
+  cardManager: {fileID: 0}
   arrow: {fileID: 401199191934561981, guid: d546ce879422f7e4985015dfdabda8fc, type: 3}
   arrowShotPoint: {fileID: 4191459900221694388}
 --- !u!1 &4191459899447728146
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 1734226522}
   m_Layer: 0
   m_Name: Castle
-  m_TagString: Building
+  m_TagString: Castle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -307,6 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0d9b52680820fc478c466b72e2cc7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 4191459899447728612}
 --- !u!1 &4191459900221694379
 GameObject:
   m_ObjectHideFlags: 0

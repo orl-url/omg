@@ -3,35 +3,21 @@ using System.Collections.Generic;
 using Common;
 using Enemies;
 using UnityEngine;
-using static BuildingsStats;
+using static BuildingsStats.AnyBuilding;
 
 public class CastleBuilding : MonoBehaviour
 {
-    private float _hp;
-    private float _damage;
-    private float _attackRadius;
-    private float _attackCooldown;
-    private float _touchDamage;
-    private float _touchDamageCooldown;
+    private float _hp = Castle.hp;
+    private float _attackRadius = Castle.attackRadius;
+    private float _attackCooldown = Castle.attackCooldown;
+    private float _touchDamage = Castle.touchDamage;
+    private float _touchDamageCooldown = Castle.touchDamageCooldown;
     private float _currentTime;
-
-    // public AttackBonuses attackBonuses;
 
     public HealthBar healthBar;
 
-    private void Init(AnyBuilding castle)
-    {
-        _hp = castle.hp;
-        _damage = castle.arrowDamage;
-        _attackRadius = castle.attackRadius;
-        _touchDamage = castle.touchDamage;
-        _touchDamageCooldown = castle.touchDamageCooldown;
-    }
-
-    
     private void Start()
     {
-        this.Init(AnyBuilding.Castle);
         _currentTime = _touchDamageCooldown;
     }
 
