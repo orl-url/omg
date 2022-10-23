@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 2225627}
   - component: {fileID: 2225628}
   - component: {fileID: 2225626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WoodenWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,6 +277,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: {fileID: 1106878817, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
+  rayToThis:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!61 &2225628
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -413,7 +416,7 @@ GameObject:
   - component: {fileID: 355820489}
   - component: {fileID: 355820491}
   - component: {fileID: 355820490}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -738,7 +741,7 @@ GameObject:
   - component: {fileID: 714548379}
   - component: {fileID: 714548378}
   - component: {fileID: 714548377}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -754,7 +757,7 @@ RectTransform:
   m_GameObject: {fileID: 714548375}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.009259259, y: 0.0093, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2225621}
@@ -764,8 +767,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920.0001, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &714548377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -805,7 +808,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &714548379
 Canvas:
   m_ObjectHideFlags: 0
@@ -815,9 +818,9 @@ Canvas:
   m_GameObject: {fileID: 714548375}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 2
+  m_RenderMode: 1
   m_Camera: {fileID: 519420031}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 6
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -1878,7 +1881,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1870913411}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2727973, y: -3.2919827, z: 0}
+  m_LocalPosition: {x: -1.2728271, y: -3.2919922, z: 0}
   m_LocalScale: {x: 0.93566984, y: 0.9344675, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1959,7 +1962,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2078995525}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1993,6 +1996,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 4191459898625899823, guid: 1121272aa9306184694360155ce7d2de, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4191459899247502945, guid: 1121272aa9306184694360155ce7d2de, type: 3}
       propertyPath: cardManager
       value: 
@@ -2052,6 +2059,10 @@ PrefabInstance:
     - target: {fileID: 4191459899447728157, guid: 1121272aa9306184694360155ce7d2de, type: 3}
       propertyPath: m_SortingLayer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191459899447728157, guid: 1121272aa9306184694360155ce7d2de, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4191459899447728157, guid: 1121272aa9306184694360155ce7d2de, type: 3}
       propertyPath: m_SortingLayerID

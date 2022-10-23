@@ -8,10 +8,11 @@ public class PlacingObj : MonoBehaviour
 {
     public Building wall;
     
+    private string _currentColliderName;
 
     private Building _objTemp;
     private TotalGold _totalGold;
-    private string _currentColliderName;
+    public LayerMask rayToThis;
 
 
     public void Init(TotalGold totalGold)
@@ -29,7 +30,7 @@ public class PlacingObj : MonoBehaviour
 
     public void BeginDrag()
     {
-        var hitInfo = Physics2D.Raycast(GetMousePosition(), Vector2.zero);
+        var hitInfo = Physics2D.Raycast(GetMousePosition(), Vector2.zero, rayToThis);
         
         _currentColliderName = hitInfo.collider.name;
         Debug.Log(_currentColliderName);
