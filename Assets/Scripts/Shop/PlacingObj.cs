@@ -15,13 +15,13 @@ public class PlacingObj : MonoBehaviour
     
     private string _currentColliderName;
     private bool _flagForUpgradeWall;
-    [SerializeField]
-    private Vector3 _woodenWallPos;
-    private BuildingsStats.AnyBuilding _currentBuildingType;    
+    // private BuildingsStats.AnyBuilding _currentBuildingType;
+
+    int ShopMask = 1 << 6;
+    private int maxValue = int.MaxValue;
 
     private Building _createdObject;
     private TotalGold _totalGold;
-
 
     public void Init(TotalGold totalGold)
     {
@@ -45,60 +45,48 @@ public class PlacingObj : MonoBehaviour
 
         switch (_currentColliderName)
         {
+            
             case "WoodenWall":
             {
-                if (_totalGold.goldStorage >= WoodenWall.cost)
-                {
-                    _createdObject = Instantiate(woodenWall, GetMousePosition(), quaternion.identity);
-                    _createdObject.GetComponent<Building>().Init(WoodenWall);
-                    // _createdObject.transform.SetParent(canvas.transform, true);
-                    allBuildings.Add(_createdObject);
-                }
+                CreateBuilding(woodenWall, WoodenWall);
                 break;
             }
             case "ArcherTower":
             {
-                if (_totalGold.goldStorage >= ArcherTower.cost)
-                {
-                    _createdObject = Instantiate(archerTower, GetMousePosition(), quaternion.identity);
-                    _createdObject.GetComponent<Building>().Init(ArcherTower);
-                    _createdObject.GetComponentInChildren<ArrowsSpawner>().Init(ArcherTower);
-                    
-                    allBuildings.Add(_createdObject);
-                }
-                break;
+                CreateBuilding(archerTower, ArcherTower);
+               break;
             }
             case "StoneWall":
             {
-                if (_totalGold.goldStorage >= StoneWall.cost)
-                {
-                    _createdObject = Instantiate(stoneWall, GetMousePosition(), quaternion.identity);
-                    _createdObject.GetComponent<Building>().Init(StoneWall);
-                    // _createdObject.transform.SetParent(canvas.transform, true);
-                    _createdObject.AddComponent<PlacingObj>();
-
-                    allBuildings.Add(_createdObject);
-                }
-                break;
+                CreateBuilding(stoneWall, StoneWall);
+               break;
             }
         }
     }
 
+    private void CreateBuilding(Building buildingPref, BuildingsStats.AnyBuilding buildingStats)
+    {
+        if (_totalGold.goldStorage >= buildingStats.cost)
+        {
+            _createdObject = Instantiate(buildingPref, GetMousePosition(), quaternion.identity);
+            _createdObject.Init(buildingStats);
+            _createdObject.transform.SetParent(canvas.transform, true);
+            allBuildings.Add(_createdObject);
+        }
+    }
+    
     public void MovingCreatedObj()
     {
-        // Debug.Log(_woodenWallPos);
         if (_createdObject != null)
         {
             _createdObject.transform.position = GetMousePosition();
-            
         }
     }
 
     
     // Добавить свич.
-    public void DragEnd()
+    public void EndDragPlaceBuilding()
     {
-        
         if (_totalGold.goldStorage >= WoodenWall.cost)
         {
             SpendGold();
@@ -106,39 +94,9 @@ public class PlacingObj : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void EndDragBuildingUpgrade()
     {
-
-        if (other.gameObject.CompareTag("WoodenWall"))
-        {
-            Debug.Log(other.name);
-
-            _flagForUpgradeWall = true;
-            // Debug.Log(_flagForUpgradeWall);
-            // Debug.Log(other.transform.position);/
-            Debug.Log(other.transform.position);
-            _woodenWallPos = other.transform.position;
-            _woodenWallPos = other.transform.position;
-            // Debug.Log("correctPos" +_woodenWallPos);
-        }
-    }
-    
-    
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        _flagForUpgradeWall = false;
-        // Debug.Log(_flagForUpgradeWall);
-        // Debug.Log("after exit" + _woodenWallPos);
-    }
-
-    public void EndDragWallUpgrade()
-    {
-        // if (_flagForUpgradeWall == true)
-        // {
-            Debug.Log("Placed");
-            // Debug.Log(_woodenWallPos);
-            _createdObject.transform.position  = _woodenWallPos;
-            // }
+        _createdObject.DropBuilding(_createdObject, GetMousePosition(), maxValue, ShopMask);
     }
         
     

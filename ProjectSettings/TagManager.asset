@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - WoodenWall
   - ArcherTower
+  - StoneWall
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,8 @@ using static BuildingsStats;
 
 public class Building : MonoBehaviour
 {
+    public BuildingType buildingType;
+        
     private float _hp;
     private float _damage;
     private float _attackRadius;
@@ -55,4 +57,20 @@ public class Building : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void DropBuilding(Building createdObject, Vector3 getMousePosition, int maxValue, int shopMask)
+    {
+        createdObject.gameObject.SetActive(false);
+        var hitInfo = Physics2D.Raycast(getMousePosition, Vector2.zero,maxValue, shopMask);
+        createdObject.transform.position = hitInfo.collider.transform.position;
+        createdObject.gameObject.SetActive(true);
+
+        // Debug.Log("новые координаты стены  " + _createdObject.transform.position);
+        // Debug.Log("имя объекта к которому прикрепится стена  " + hitInfo.collider.name);
+    }
+}
+public enum BuildingType
+{
+    WoodenWall,
+    StoneWall,
 }

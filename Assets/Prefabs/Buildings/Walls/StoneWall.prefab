@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 489007797}
   - component: {fileID: -6914365907297912827}
   - component: {fileID: 1106878817}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StoneWall
   m_TagString: WoodenWall
   m_Icon: {fileID: 0}
@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586d09e1895a1524483ff0fe3941932f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingType: 1
   healthBar: {fileID: -6914365907297912827}
 --- !u!1 &2408161801392100914
 GameObject:
