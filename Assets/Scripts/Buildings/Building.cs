@@ -1,5 +1,6 @@
 using Common;
 using Enemies;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static BuildingsStats;
@@ -8,17 +9,11 @@ public class Building : MonoBehaviour
 {
     public BuildingType buildingType;
         
-    private float _hp;
-    private float _damage;
-    private float _attackRadius;
-    private float _attackCooldown;
-    private float _touchDamage;
-    private float _touchDamageCooldown;
+    private float _hp, _damage, _attackRadius, _attackCooldown, _touchDamage, _touchDamageCooldown;
     private float _currentTime;
     
     public HealthBar healthBar;
 
-    
     public void Init(AnyBuilding anyBuilding)
     {
         _hp = anyBuilding.hp;
@@ -27,6 +22,8 @@ public class Building : MonoBehaviour
         _attackRadius = anyBuilding.attackRadius;
         _touchDamage = anyBuilding.touchDamage;
         _touchDamageCooldown = anyBuilding.touchDamageCooldown;
+        
+        healthBar.maxHealth = _hp;
     }
     
     private void Start()
@@ -58,12 +55,17 @@ public class Building : MonoBehaviour
         }
     }
 
-    public void DropBuilding(Building createdObject, Vector3 getMousePosition, int maxValue, int shopMask)
+    public void DropBuilding(Vector3 getMousePosition, int maxValue, int shopMask)
     {
-        createdObject.gameObject.SetActive(false);
+        gameObject.SetActive(false);
         var hitInfo = Physics2D.Raycast(getMousePosition, Vector2.zero,maxValue, shopMask);
-        createdObject.transform.position = hitInfo.collider.transform.position;
-        createdObject.gameObject.SetActive(true);
+        // if (buildingType == (hitInfo.collider.GetComponent<Building>().buildingType));
+        // {
+        //     
+        // }
+        transform.position = hitInfo.collider.transform.position;
+        gameObject.SetActive(true);
+        Destroy(hitInfo.collider.gameObject);
 
         // Debug.Log("новые координаты стены  " + _createdObject.transform.position);
         // Debug.Log("имя объекта к которому прикрепится стена  " + hitInfo.collider.name);
@@ -73,4 +75,6 @@ public enum BuildingType
 {
     WoodenWall,
     StoneWall,
+    ArcherTowerLvl1,
+    ArcherTowerLvl2,
 }

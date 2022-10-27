@@ -22,8 +22,8 @@ public static class EnemiesStats
 
         public static readonly AnyGoblin LittleGoblin = new AnyGoblin()
         {
-            health = 1f,
-            damage = 0.5f,
+            health = 100f,
+            damage = 20,
             attackCooldown = 1,
             coinsForDeath = 2,
             speed = 1f,
@@ -31,8 +31,8 @@ public static class EnemiesStats
 
         public static readonly AnyGoblin BossGoblin = new AnyGoblin()
         {
-            health = 0.5f,
-            damage = 0.001f,
+            health = 200f,
+            damage = 40f,
             attackCooldown = 0.2f,
             coinsForDeath = 1,
             speed = 2f,
@@ -45,39 +45,49 @@ public static class EnemiesStats
             return AllGoblinsTypes;
         }
 
-        public static void DoForAllElements( string fieldName, float value)
+        public static void DoForAllElements(EnemyStats statName, float value)
         {
             var allGoblins = AddAllGoblinsToList();
             
             foreach (var goblin in allGoblins)
             {
-                switch (fieldName)
+                switch (statName)
                 {
-                    case "health":
+                    case EnemyStats.Health:
                         goblin.health += value;
                         break;
-                    case "damage":
+                    case EnemyStats.Damage:
                     {
                         goblin.damage += value;
                         break;
                     }
-                    case "attackCooldown":
+                    case EnemyStats.AttackCooldown:
                     {
                         goblin.attackCooldown += value;
                         break;
                     }
-                    case "coinsForDeath":
+                    case EnemyStats.CoinsForDeath:
                     {
                         goblin.coinsForDeath += value;
                         break;
                     }
-                    case "speed":
+                    case EnemyStats.Speed:
                     {
                         goblin.speed *= value;
                         break;
                     }
                 }
             }
+        }
+        
+        public enum EnemyStats
+        {
+            Health,
+            Damage,
+            AttackCooldown,
+            CoinsForDeath,
+            Speed,
+            
         }
     }
 }

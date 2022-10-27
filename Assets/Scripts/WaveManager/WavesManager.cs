@@ -7,30 +7,25 @@ public class WavesManager : MonoBehaviour
 {
     public Transform[] spawnPoints;
     public EnemyWave[] waves;
-    public GameObject castle;
     public CardManager cardManager;
 
-    public List<Enemy> enemyList;
+    public List<Enemy> enemyList = AnyGoblin.allEnemies;
     private Vector2 _target;
     private EnemyWave _currentWave;
     private EnemyWave.Step _currentStep;
     private Enemy _newEnemy;
+    private AnyGoblin _typeOfCreatedEnemy;
     
-    private int _waveIndex = -1;
-    private int _stepIndex = -1;
-    private int _enemyCount;
-    private float _timer;
-    private float _cooldown;
-    private int _counter = 0;
-
+    private int _waveIndex = -1, _stepIndex = -1, _enemyCount, _counterCurrentWave = 0;
     private int _stepInd;
+    private float _timer, _cooldown;
 
     private void Start()
     {
         NextWave();
     }
 
-    public void NextWave()
+    private void NextWave()
     {
         _waveIndex++;
 
@@ -68,7 +63,7 @@ public class WavesManager : MonoBehaviour
         if (_currentWave is null)
             return;
         
-        if (_counter <= _waveIndex) {Next();}
+        if (_counterCurrentWave <= _waveIndex) {TryCreateCards();}
 
         if (_currentStep is null) // Пройдены все степы волны.
             return;
@@ -76,18 +71,16 @@ public class WavesManager : MonoBehaviour
         UpdateWaveStep(); // Проверяет количество врагов на сцене.
     }
 
-    private void Next()
+    private void TryCreateCards()
     {
         if (enemyList.Count == 0 &&  _currentStep == null && _waveIndex < 100)
         {
-            {
-                cardManager.CreateCards();
-                _counter += 1;
-            }
+            Time.timeScale = 0;
+            cardManager.CreateCards();
+            _counterCurrentWave += 1;
         }
     }
-
-
+    
     // ReSharper disable Unity.PerformanceAnalysis
 
     private void UpdateWaveStep()  // Вызывается каждый кадр
@@ -110,19 +103,14 @@ public class WavesManager : MonoBehaviour
     {
         var spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
         _newEnemy = Instantiate(_currentStep.enemyPref, spawnPoint.transform);
-        
-        if (_currentStep.enemyPref.name == "LittleGoblin")
-        {
-            _newEnemy.Init(this, AnyGoblin.LittleGoblin);
-            _newEnemy.GetComponent<Controller>().Init(AnyGoblin.LittleGoblin);
-        }
-        else if (_currentStep.enemyPref.name == "BigGoblin")
-        {
-            _newEnemy.Init(this, AnyGoblin.BossGoblin);
-            _newEnemy.GetComponent<Controller>().Init(AnyGoblin.BossGoblin);
-        }
-        
-        AnyGoblin.allEnemies.Add(_newEnemy);
+
         _enemyCount++;
+    }
+    
+    public void PlayGame()
+    {
+        // cardsCanvas.SetActive(false);
+        Time.timeScale = 1;
+        NextWave();
     }
 }

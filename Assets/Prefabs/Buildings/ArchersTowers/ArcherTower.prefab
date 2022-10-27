@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2000267392839005802}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArrowShotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 8436148853812943682}
   - component: {fileID: 4902904426779836530}
   - component: {fileID: 4802521783715860000}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArcherTower
   m_TagString: ArcherTower
   m_Icon: {fileID: 0}
@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586d09e1895a1524483ff0fe3941932f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingType: 2
   healthBar: {fileID: 4902904426779836530}
 --- !u!114 &4902904426779836530
 MonoBehaviour:
@@ -348,7 +349,7 @@ GameObject:
   - component: {fileID: 2000267393488019096}
   - component: {fileID: 2000267393488019098}
   - component: {fileID: 2000267393488019097}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArcherTowerDamageArea
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}

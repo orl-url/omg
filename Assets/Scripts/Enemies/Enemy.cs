@@ -8,22 +8,19 @@ namespace Enemies
 {
     public class Enemy : MonoBehaviour
     {
-        private float _health;
-        private float _damage;
-        private float _attackCooldown;
-        private float _coinsForDeath;
-   
-        
-        private float _currentTime;
-        
+        private float _health, _damage, _attackCooldown, _coinsForDeath, _currentTime;
+
+        public EnemyType enemyType;
         public GameObject coin;
         public HealthBar healthBar;
-        private WavesManager _wavesManager;
 
-        public void Init(WavesManager manager, AnyGoblin anyGoblin)
+
+        private void Init(AnyGoblin anyGoblin)
         {
-            _wavesManager = manager;
-            _wavesManager.enemyList.Add(this);
+            AnyGoblin.allEnemies.Add(this);
+            GetComponent<Controller>().Init(anyGoblin);
+
+            healthBar.maxHealth = anyGoblin.health;
             
             _health = anyGoblin.health;
             _damage = anyGoblin.damage;
@@ -31,10 +28,21 @@ namespace Enemies
             _coinsForDeath = anyGoblin.coinsForDeath;
         }
         
+        
         // Timer for cooldown.
         private void Start()
         {
             _currentTime = _attackCooldown;
+            
+            switch (enemyType)
+            {
+                case EnemyType.LittleGoblin:
+                    this.Init(AnyGoblin.LittleGoblin);
+                    break;
+                case EnemyType.BigGoblin:
+                    this.Init(AnyGoblin.BossGoblin);
+                    break;
+            }
         }
         
         private void Update()
@@ -70,9 +78,8 @@ namespace Enemies
             if (_health <= 0f)
             {
                 Destroy(gameObject);
-                _wavesManager.enemyList.Remove(this);
+                AnyGoblin.allEnemies.Remove(this);
                 DropCoin();
-                
             }
         }
         
@@ -83,6 +90,11 @@ namespace Enemies
                Instantiate(coin, transform.position, Quaternion.identity);
            }
        }
-       
+    }
+
+    public enum EnemyType
+    {
+        LittleGoblin,
+        BigGoblin,
     }
 }

@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 2225624}
   - component: {fileID: 2225628}
   - component: {fileID: 2225626}
+  - component: {fileID: 2225629}
   m_Layer: 0
   m_Name: WoodenWall
   m_TagString: WoodenWall
@@ -219,9 +220,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 714548380}
-          m_TargetAssemblyTypeName: PlacingObj, Assembly-CSharp
-          m_MethodName: BeginDrag
+        - m_Target: {fileID: 2225629}
+          m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
+          m_MethodName: BeginDragTakeBuildingTypeAndCreate
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -235,9 +236,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 714548380}
-          m_TargetAssemblyTypeName: PlacingObj, Assembly-CSharp
-          m_MethodName: MovingCreatedObj
+        - m_Target: {fileID: 2225629}
+          m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
+          m_MethodName: DragMovingCreatedObj
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -251,9 +252,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 714548380}
-          m_TargetAssemblyTypeName: PlacingObj, Assembly-CSharp
-          m_MethodName: DragEnd
+        - m_Target: {fileID: 2225629}
+          m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
+          m_MethodName: EndDragPlaceBuilding
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -289,67 +290,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 200, y: 100}
   m_EdgeRadius: 0
---- !u!1001 &88599249
-PrefabInstance:
+--- !u!114 &2225629
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1106878817, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
-      propertyPath: buildingType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309110393500675991, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
-      propertyPath: m_Name
-      value: WoodenWall
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.028525
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.040587
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2225620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0a2a7fcc114d24ebc1f10fcfea45a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 1106878817, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
 --- !u!1 &109555336
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,7 +487,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'ArcherTower
+  m_Text: 'ArcherTower Lvl 1
 
 '
 --- !u!222 &292133718
@@ -558,8 +511,9 @@ GameObject:
   - component: {fileID: 310015246}
   - component: {fileID: 310015245}
   - component: {fileID: 310015244}
+  - component: {fileID: 310015248}
   m_Layer: 0
-  m_Name: ArcherTower
+  m_Name: ArcherTowerLvl1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -579,7 +533,7 @@ RectTransform:
   m_Children:
   - {fileID: 292133716}
   m_Father: {fileID: 714548376}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -603,9 +557,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 714548380}
-          m_TargetAssemblyTypeName: PlacingObj, Assembly-CSharp
-          m_MethodName: BeginDrag
+        - m_Target: {fileID: 310015248}
+          m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
+          m_MethodName: BeginDragTakeBuildingTypeAndCreate
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -619,9 +573,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 714548380}
-          m_TargetAssemblyTypeName: PlacingObj, Assembly-CSharp
-          m_MethodName: MovingCreatedObj
+        - m_Target: {fileID: 310015248}
+          m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
+          m_MethodName: DragMovingCreatedObj
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -635,9 +589,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 714548380}
-          m_TargetAssemblyTypeName: PlacingObj, Assembly-CSharp
-          m_MethodName: DragEnd
+        - m_Target: {fileID: 310015248}
+          m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
+          m_MethodName: EndDragPlaceBuilding
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -711,6 +665,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310015242}
   m_CullTransparentMesh: 1
+--- !u!114 &310015248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310015242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0a2a7fcc114d24ebc1f10fcfea45a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 8436148853812943682, guid: 3ed5f8f640488344281dba0df34bb261, type: 3}
 --- !u!1 &336513278
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,7 +720,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 762251c297bf2474b83d6ee342b17223, type: 2}
   - {fileID: 11400000, guid: be722da16ba710c40955574665a38510, type: 2}
   - {fileID: 11400000, guid: d5336059fefae7349a4baa7bb33f58f6, type: 2}
-  castle: {fileID: 1734226516}
   cardManager: {fileID: 1579471961}
   enemyList: []
 --- !u!4 &336513280
@@ -777,7 +743,7 @@ Transform:
   - {fileID: 260531686}
   - {fileID: 459427152}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &355820488
 GameObject:
@@ -892,7 +858,7 @@ Transform:
   m_Children:
   - {fileID: 1561293801}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &372444229
 MonoBehaviour:
@@ -907,7 +873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreDisplay: {fileID: 375474572}
-  shop: {fileID: 714548380}
+  canvas: {fileID: 1561293800}
 --- !u!1 &375474569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,8 +1102,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2225621}
-  - {fileID: 310015243}
   - {fileID: 940581322}
+  - {fileID: 310015243}
+  - {fileID: 1543972245}
   m_Father: {fileID: 2078995525}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1219,10 +1186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee80fd4571ba9964493c42b65c4becd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  woodenWall: {fileID: 1106878817, guid: 6d3682bedc7c17c45b64ae9146ad7ee2, type: 3}
-  archerTower: {fileID: 8436148853812943682, guid: 3ed5f8f640488344281dba0df34bb261, type: 3}
-  stoneWall: {fileID: 1106878817, guid: 8a77ee8dc3a07ca4c958060fac36ad46, type: 3}
-  canvas: {fileID: 714548379}
+  thisCanvas: {fileID: 714548379}
+  totalGold: {fileID: 372444229}
 --- !u!1 &745994583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,65 +1218,8 @@ Transform:
   m_Children:
   - {fileID: 1734226517}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &763086920
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1309110393500675991, guid: 8a77ee8dc3a07ca4c958060fac36ad46, type: 3}
-      propertyPath: m_Name
-      value: StoneWall
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 8a77ee8dc3a07ca4c958060fac36ad46, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 8a77ee8dc3a07ca4c958060fac36ad46, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.8298755
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 8a77ee8dc3a07ca4c958060fac36ad46, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.208189
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 8a77ee8dc3a07ca4c958060fac36ad46, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 8a77ee8dc3a07ca4c958060fac36ad46, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 8a77ee8dc3a07ca4c958060fac36ad46, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 8a77ee8dc3a07ca4c958060fac36ad46, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 8a77ee8dc3a07ca4c958060fac36ad46, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 8a77ee8dc3a07ca4c958060fac36ad46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 8a77ee8dc3a07ca4c958060fac36ad46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603749794160189058, guid: 8a77ee8dc3a07ca4c958060fac36ad46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8a77ee8dc3a07ca4c958060fac36ad46, type: 3}
 --- !u!1 &934856100
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,6 +1265,7 @@ GameObject:
   - component: {fileID: 940581324}
   - component: {fileID: 940581323}
   - component: {fileID: 940581327}
+  - component: {fileID: 940581328}
   m_Layer: 6
   m_Name: StoneWall
   m_TagString: Untagged
@@ -1378,7 +1287,7 @@ RectTransform:
   m_Children:
   - {fileID: 109555337}
   m_Father: {fileID: 714548376}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1402,9 +1311,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 714548380}
-          m_TargetAssemblyTypeName: PlacingObj, Assembly-CSharp
-          m_MethodName: BeginDrag
+        - m_Target: {fileID: 940581328}
+          m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
+          m_MethodName: BeginDragTakeBuildingTypeAndCreate
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1418,9 +1327,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 714548380}
-          m_TargetAssemblyTypeName: PlacingObj, Assembly-CSharp
-          m_MethodName: MovingCreatedObj
+        - m_Target: {fileID: 940581328}
+          m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
+          m_MethodName: DragMovingCreatedObj
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1434,9 +1343,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 714548380}
-          m_TargetAssemblyTypeName: PlacingObj, Assembly-CSharp
-          m_MethodName: EndDragWallUpgrade
+        - m_Target: {fileID: 940581328}
+          m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
+          m_MethodName: EndDragBuildingUpgrade
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1531,6 +1440,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &940581328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940581321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0a2a7fcc114d24ebc1f10fcfea45a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 1106878817, guid: 8a77ee8dc3a07ca4c958060fac36ad46, type: 3}
 --- !u!1 &1010636738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,7 +1516,7 @@ Transform:
   - {fileID: 1870913413}
   - {fileID: 1134732416}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1134732413
 GameObject:
@@ -1695,6 +1617,186 @@ Transform:
   m_Father: {fileID: 336513280}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1543972244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1543972245}
+  - component: {fileID: 1543972250}
+  - component: {fileID: 1543972249}
+  - component: {fileID: 1543972248}
+  - component: {fileID: 1543972247}
+  - component: {fileID: 1543972246}
+  m_Layer: 6
+  m_Name: ArcherTowerLvl2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1543972245
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543972244}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2071920549}
+  m_Father: {fileID: 714548376}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 445, y: -375}
+  m_SizeDelta: {x: 200, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1543972246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543972244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0a2a7fcc114d24ebc1f10fcfea45a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 8896412846684814259, guid: ded29575b65aef14ea2a7b68c3872cff, type: 3}
+--- !u!114 &1543972247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543972244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 13
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543972246}
+          m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
+          m_MethodName: BeginDragTakeBuildingTypeAndCreate
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 5
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543972246}
+          m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
+          m_MethodName: DragMovingCreatedObj
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 14
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543972246}
+          m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
+          m_MethodName: EndDragBuildingUpgrade
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!61 &1543972248
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543972244}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 200, y: 100}
+  m_EdgeRadius: 0
+--- !u!114 &1543972249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543972244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1543972250
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543972244}
+  m_CullTransparentMesh: 1
 --- !u!1 &1561293797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1838,7 +1940,6 @@ MonoBehaviour:
   - {fileID: 7153848273996182346, guid: bc34a7216913f734b9326f8f2e66f1c1, type: 3}
   currentCardPrefs: []
   cardOnScreen: []
-  usedCards: []
 --- !u!4 &1579471962
 Transform:
   m_ObjectHideFlags: 0
@@ -2017,11 +2118,6 @@ Transform:
   m_Father: {fileID: 336513280}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1734226516 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4191459899447728146, guid: 1121272aa9306184694360155ce7d2de, type: 3}
-  m_PrefabInstance: {fileID: 4191459899321618148}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1734226517 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4191459899447728147, guid: 1121272aa9306184694360155ce7d2de, type: 3}
@@ -2142,6 +2238,88 @@ Transform:
   m_Father: {fileID: 1063413748}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2071920548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2071920549}
+  - component: {fileID: 2071920551}
+  - component: {fileID: 2071920550}
+  m_Layer: 6
+  m_Name: Text (Legacy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2071920549
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071920548}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1543972245}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2071920550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071920548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'ArcherTower Lvl2
+
+'
+--- !u!222 &2071920551
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071920548}
+  m_CullTransparentMesh: 1
 --- !u!1 &2078995524
 GameObject:
   m_ObjectHideFlags: 0
@@ -2172,7 +2350,7 @@ Transform:
   m_Children:
   - {fileID: 714548376}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4191459899321618148
 PrefabInstance:

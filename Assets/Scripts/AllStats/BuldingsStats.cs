@@ -4,14 +4,9 @@ public static class BuildingsStats
 {
     public class AnyBuilding
     {
-        public float hp;
-        public float touchDamage;
-        public float touchDamageCooldown;
-        public float attackRadius;
+        public float hp, touchDamage, touchDamageCooldown, attackRadius;
 
-        public float arrowDamage;
-        public float arrowSpeed;
-        public float attackCooldown;
+        public float arrowDamage, arrowSpeed, attackCooldown;
         
         public float cost;
 
@@ -22,7 +17,7 @@ public static class BuildingsStats
         public static readonly AnyBuilding Castle = new AnyBuilding()
         {
             // Castle.
-            hp = 1,
+            hp = 100,
             touchDamage = 0f,
             touchDamageCooldown = 0.5f,
             attackRadius = 15f,
@@ -30,18 +25,7 @@ public static class BuildingsStats
 
             // Weapon.
             arrowSpeed = 10f,
-            arrowDamage = 0.5f,
-        };
-
-        public static readonly AnyBuilding ArcherTower = new AnyBuilding()
-        {
-            hp = 1,
-            attackRadius = 5f,
-            attackCooldown = 0.5f,
-
-            cost = 10f,
-            // arrowSpeed = 10f,
-            // arrowDamage = 0.5f,
+            arrowDamage = 200f,
         };
 
         public static readonly AnyBuilding WoodenWall = new AnyBuilding()
@@ -52,7 +36,7 @@ public static class BuildingsStats
             
             cost = 5f,
         };
-        
+
         public static readonly AnyBuilding StoneWall = new AnyBuilding()
         {
             hp = 2,
@@ -62,6 +46,29 @@ public static class BuildingsStats
             cost = 5f,
         };
 
+        public static readonly AnyBuilding ArcherTowerLvl1 = new AnyBuilding()
+        {
+            hp = 40,
+            attackRadius = 5f,
+            attackCooldown = 0.5f,
+
+            cost = 10f,
+            // arrowSpeed = 10f,
+            // arrowDamage = 0.5f,
+        };
+        
+        public static readonly AnyBuilding ArcherTowerLvl2 = new AnyBuilding()
+        {
+            hp = 50,
+            attackRadius = 7f,
+            attackCooldown = 0.35f,
+
+            cost = 12f,
+            // arrowSpeed = 10f,
+            // arrowDamage = 0.5f,
+        };
+        
+        
 
         public static List<AnyBuilding> AddAllBuildingsTypesToList()
         {

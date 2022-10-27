@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using static EnemiesStats;
 using static BuildingsStats;
@@ -5,26 +6,29 @@ using static BuildingsStats;
 public class OtherBonuses : MonoBehaviour
 {
     private CardManager _cardManager;
-    public void Init(CardManager cardManager)
+    private readonly CardsTypes _typeThisCard = CardsTypes.OtherCard;
+
+    private void Start()
     {
-        _cardManager = cardManager;
+        _cardManager = gameObject.GetComponentInParent<CardManager>();
     }
+
 
     public void IncreaseCoinsValue()
     {
-        AnyGoblin.DoForAllElements("coinsForDeath", 5);
+        AnyGoblin.DoForAllElements(AnyGoblin.EnemyStats.CoinsForDeath, 5);
         DeletingCards();
     }
     
     private void DeletingCards()
     {
-        _cardManager.DeleteCardFromList("other");
-        _cardManager.DestroyCards();
+        _cardManager.DeleteCardFromList(_typeThisCard);
+        _cardManager.DestroyScreenCardsAndPlayGame();
     }
 
     public void SlowDownTheEnemy()
     {
-        AnyGoblin.DoForAllElements("speed", 0.9f);
+        AnyGoblin.DoForAllElements(AnyGoblin.EnemyStats.Speed, 0.9f);
         DeletingCards();
     }
 

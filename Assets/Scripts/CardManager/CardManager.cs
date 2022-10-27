@@ -10,33 +10,23 @@ public class CardManager : MonoBehaviour
 {
     public WavesManager wavesManager;
     public GameObject cardsCanvas;
-    public List <GameObject> atkCards;
-    public List <GameObject> defCards;
-    public List <GameObject> otherCards;
-
-    public List <GameObject> currentCardPrefs;
+    public List <GameObject> atkCards, defCards, otherCards, currentCardPrefs;
 
     private List<Progress.Item> _bufferForUsedCard;
-    // internal ArrowsSpawner arrowsSpawner;
     [SerializeField] private List <GameObject> cardOnScreen = new List<GameObject>();
-    [SerializeField] private List<GameObject> usedCards;
 
 
     // ReSharper disable Unity.PerformanceAnalysis
     public void CreateCards()
     {
-        Time.timeScale = 0;
+        CreateCard(atkCards, -700, 0);
         
-        var card = CreateCard(atkCards, -700, 0);
-        card.gameObject.GetComponent<AttackBonuses>().Init(this);
+        CreateCard(defCards,0, 0);
         
-        card = CreateCard(defCards,0, 0);
-        card.gameObject.GetComponent<DefendBonuses>().Init(this);
-        
-        card = CreateCard(otherCards, 700, 0);
-        card.gameObject.GetComponent<OtherBonuses>().Init(this);
+        CreateCard(otherCards, 700, 0);
         
         cardsCanvas.SetActive(true);
+        
     }
 
     private GameObject  CreateCard(List <GameObject> cards , float x, float y)
@@ -50,41 +40,36 @@ public class CardManager : MonoBehaviour
         return card;
     }
 
-    public void DeleteCardFromList(string typeCard)
+    public void DeleteCardFromList(CardsTypes typeCard)
     {
         switch (typeCard)
         {
-            case "attack":
+            case CardsTypes.AttackCard:
                 atkCards.Remove(currentCardPrefs[0]);
                 break;
-            case "defend":
+            case CardsTypes.DefendCard:
                 defCards.Remove(currentCardPrefs[1]);
                 break;
-            case "other":
+            case CardsTypes.OtherCard:
                 otherCards.Remove(currentCardPrefs[2]);
             break;
         }
     }
 
-    public void DestroyCards()
+    public void DestroyScreenCardsAndPlayGame()
     {
         for (var i = 0; i <= cardOnScreen.Count - 1; i++)
         {
             Destroy(cardOnScreen[i]);
         }
         
-        PlayGame();
+        wavesManager.PlayGame();
     }
+}
 
-    private void PlayGame()
-    {
-        // cardsCanvas.SetActive(false);
-        Time.timeScale = 1;
-        wavesManager.NextWave();
-    }
-
-    private void MoveComponentFromCard()
-    {
-        
-    }
+public enum CardsTypes
+{
+    AttackCard,
+    DefendCard,
+    OtherCard,
 }

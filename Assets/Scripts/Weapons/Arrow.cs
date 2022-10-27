@@ -7,8 +7,8 @@ namespace Weapons
 {
     public class Arrow : MonoBehaviour
     {
-        private float _speed = AnyBuilding.Castle.arrowSpeed;
-        private float _damage = AnyBuilding.Castle.arrowDamage;
+        private readonly float _speed = AnyBuilding.Castle.arrowSpeed;
+        private readonly float _damage = AnyBuilding.Castle.arrowDamage;
         
         private Rigidbody2D _rb;
 

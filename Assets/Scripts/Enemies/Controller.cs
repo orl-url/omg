@@ -32,7 +32,7 @@ namespace Enemies
 
         private void Move()
         {
-            var direction = (_target - (Vector2)transform.position).normalized;
+            var direction = (_target - (Vector2) transform.position).normalized;
             _rb.MovePosition((Vector2) _rb.transform.position + (direction* (_speed*Time.fixedDeltaTime)).normalized/15);
         }
     }

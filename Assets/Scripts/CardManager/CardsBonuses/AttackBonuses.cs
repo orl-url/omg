@@ -6,11 +6,11 @@ using static BonusesStats;
 public class AttackBonuses : MonoBehaviour
 {
     private CardManager _cardManager;
-    private ArrowsSpawner _arrowsSpawner;
+    private readonly CardsTypes _typeThisCard = CardsTypes.AttackCard;
 
-    public void Init(CardManager cardManager)
+    private void Start()
     {
-        _cardManager = cardManager;
+        _cardManager = gameObject.GetComponentInParent<CardManager>();
     }
     
     public void IncreaseArrowDamage()
@@ -25,7 +25,7 @@ public class AttackBonuses : MonoBehaviour
         DeletingCards();
     }
 
-    private void AddArrowWave()
+    public void AddArrowWave()
     {
         flagCreateArrowWave = true;
         DeletingCards();
@@ -34,7 +34,11 @@ public class AttackBonuses : MonoBehaviour
 
     private void DeletingCards()
     {
-        _cardManager.DeleteCardFromList("attack");
-        _cardManager.DestroyCards();
+        _cardManager.DeleteCardFromList(_typeThisCard);
+        _cardManager.DestroyScreenCardsAndPlayGame();
     }
 }
+
+
+
+

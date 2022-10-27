@@ -7,13 +7,10 @@ using static BonusesStats;
 
 public class ArrowsSpawner : MonoBehaviour
 {
-    private float _cooldown;
+    private float _cooldown, _currentTime = 1f, _currentArrowWaveTime = 1;
     
-    private float _currentTime = 1f;
     private readonly float _arrowWaveCooldown = arrowWaveCooldown ;
-    private float _currentArrowWaveTime = 1f;
 
-    // public CardManager cardManager;
     public GameObject arrow;
     public Transform arrowShotPoint;
 
@@ -69,12 +66,10 @@ public class ArrowsSpawner : MonoBehaviour
     
     public void CreateArrowWave()
     {
-        var i = 0;
-        while (i < 12)
+        for (var i = 0; i < 12; i++)
         {
             var rotation = Quaternion.Euler(0, 0, 30 * i);
             Instantiate(arrow, arrowShotPoint.position, rotation);
-            i++;
         }
     }
 }

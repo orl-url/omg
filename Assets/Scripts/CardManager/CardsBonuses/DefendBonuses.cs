@@ -3,9 +3,11 @@ using UnityEngine;
 public class DefendBonuses : MonoBehaviour
 {
     private CardManager _cardManager;
-    public void Init(CardManager cardManager)
+    private readonly CardsTypes _typeThisCard = CardsTypes.DefendCard;
+
+    private void Start()
     {
-        _cardManager = cardManager;
+        _cardManager = gameObject.GetComponentInParent<CardManager>();
     }
 
     public void IncreaseWallsHp() // Увеличивает хп новых стен.
@@ -15,7 +17,9 @@ public class DefendBonuses : MonoBehaviour
     }
     private void DeletingCards()
     {
-        _cardManager.DeleteCardFromList("defend");
-        _cardManager.DestroyCards();
+        _cardManager.DeleteCardFromList(_typeThisCard);
+        _cardManager.DestroyScreenCardsAndPlayGame();
     }
 }
+
+
