@@ -11,65 +11,49 @@ namespace Enemies
     {
         public static Action<Enemy> onDied;
 
-        private float _health, _damage, _attackCooldown, _coinsForDeath, _currentTime;
+        private float _health,_coinsForDeath;
 
         public EnemyType enemyType;
         public GameObject coin;
         public HealthBar healthBar;
 
 
-        private void Init(AnyGoblin anyGoblin)
+        protected void Init(AnyGoblin anyGoblin)
         {
-            AnyGoblin.allEnemies.Add(this);
-            GetComponent<Controller>().Init(anyGoblin);
-
-            healthBar.maxHealth = anyGoblin.health;
-            
             _health = anyGoblin.health;
-            _damage = anyGoblin.damage;
-            _attackCooldown = anyGoblin.attackCooldown;
             _coinsForDeath = anyGoblin.coinsForDeath;
+
+            HitManagerInit(anyGoblin);
+            ControllerInit(anyGoblin);
+            SetMaxHpInHealthBar(anyGoblin);
+            AddToStaticListOfEnemies();
+        }
+
+        private void HitManagerInit(AnyGoblin anyGoblin)
+        {
+            var hitManager = GetComponentInChildren<HitManager>();
+            hitManager.Init(anyGoblin);
+        }
+        
+        private void ControllerInit(AnyGoblin anyGoblin)
+        {
+            var controller = GetComponentInChildren<Controller>();
+            controller.Init(anyGoblin);
+        }
+        
+        private void AddToStaticListOfEnemies()
+        {  
+            AnyGoblin.allEnemies.Add(this);
+        }
+        
+        private void SetMaxHpInHealthBar(AnyGoblin anyGoblin)
+        {
+            healthBar.maxHealth = anyGoblin.health;
         }
         
         
-        // Timer for cooldown.
-        private void Start()
-        {
-            _currentTime = _attackCooldown;
-            
-            switch (enemyType)
-            {
-                case EnemyType.LittleGoblin:
-                    this.Init(AnyGoblin.LittleGoblin);
-                    break;
-                case EnemyType.BigGoblin:
-                    this.Init(AnyGoblin.BossGoblin);
-                    break;
-            }
-        }
-        
-        private void Update()
-        {
-            _currentTime -= Time.deltaTime;
-        }
-
-
-        // Damage the castle or some building.
-
-        public void OnCollisionStay2D(Collision2D col)
-        {
-            if (col.gameObject.TryGetComponent (out IDamageable damageable) && _currentTime <= 0f)
-            {
-                damageable.TakeDamage(_damage);
-                
-                _currentTime = _attackCooldown;
-            }
-        }
-
-        // Damage from castle or some building.
         public void TakeDamage(float damage)
         {
-            
             _health -= damage;
             healthBar.HealthUpdate(_health);
             if (_health <= 0f)
@@ -96,12 +80,5 @@ namespace Enemies
                Instantiate(coin, transform.position, Quaternion.identity);
            }
        }
-    }
-    
-
-    public enum EnemyType
-    {
-        LittleGoblin,
-        BigGoblin,
     }
 }

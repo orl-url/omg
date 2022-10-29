@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Enemies;
-using Interfaces;
-using UnityEditor;
 using UnityEngine;
+using Weapons;
 using Random = UnityEngine.Random;
 
 public class ArrowWeapon : MonoBehaviour
@@ -12,34 +11,29 @@ public class ArrowWeapon : MonoBehaviour
 
     private readonly List<Enemy> _enemies = new List<Enemy>();
     private Enemy _currentEnemy;
-    private float _timer;
-    private float _attackCooldown;
-    private IBuildingType.BuildingType _buildingType;
+    private float _timer, _attackCooldown;
+    private BuildingType _buildingType;
+    private BuildingsStats.AnyBuilding _anyBuilding;
 
-    private void Init(BuildingsStats.AnyBuilding anyBuilding)
+    public void Init(BuildingsStats.AnyBuilding anyBuilding)
     {
+        _anyBuilding = anyBuilding;
         _attackCooldown = anyBuilding.attackCooldown;
-        _attackCooldown = BuildingsStats.AnyBuilding.Castle.attackCooldown;
+        
+        SetAttackRadius(GetComponent<CircleCollider2D>(), anyBuilding);
+        SetArrowParameters(anyBuilding);
     }
-    
-    
-    private void Start()
+
+    private void SetAttackRadius(CircleCollider2D attackArea, BuildingsStats.AnyBuilding anyBuilding)
     {
-        _buildingType = GetComponentInParent<IBuildingType>().SetType();
-        switch (_buildingType)
-        {
-            case IBuildingType.BuildingType.Castle:
-            {
-                Init(BuildingsStats.AnyBuilding.Castle);
-                break;
-            }
-            case IBuildingType.BuildingType.ArcherTowerLevel1:
-            {
-                Init(BuildingsStats.AnyBuilding.ArcherTowerLvl1);
-                break;
-            }
-        }
+        attackArea.radius = anyBuilding.attackRadius;
     }
+
+    private void SetArrowParameters(BuildingsStats.AnyBuilding anyBuilding)
+    {
+        spawner.arrow.Init(anyBuilding);
+    }
+    
 
     private void OnEnable()
     {
@@ -82,8 +76,10 @@ public class ArrowWeapon : MonoBehaviour
 
     private void Shoot()
     {
+        Debug.Log("Shoot");
         var enemy = GetCurrentEnemy();
-        spawner.SpawnArrow(enemy.transform.position);
+        var createdArrow = spawner.SpawnArrow(enemy.transform.position);
+        createdArrow.Init(_anyBuilding);
     }
 
     private Enemy GetCurrentEnemy()

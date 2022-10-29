@@ -4,78 +4,60 @@ public static class BuildingsStats
 {
     public class AnyBuilding
     {
-        public float hp, touchDamage, touchDamageCooldown, attackRadius;
-
-        public float arrowDamage, arrowSpeed, attackCooldown;
-        
+        public float hp;
+        public float arrowDamage, arrowSpeed, attackRadius, attackCooldown;
         public float cost;
-
         public int arrowsValue;
+        
 
-        public static List<Building> allBuildings = new List<Building>();
+        public static readonly List<Building> allBuildings = new List<Building>();
+        private static readonly List<AnyBuilding> AllWallTypes = new List<AnyBuilding>();
 
-        public static readonly List<AnyBuilding> AllWallTypes = new List<AnyBuilding>();
-
+        
         public static readonly AnyBuilding Castle = new AnyBuilding()
         {
             // Castle.
             hp = 100,
-            touchDamage = 0f,
-            touchDamageCooldown = 0.5f,
+
+            // Detection Area.
             attackRadius = 15f,
-            attackCooldown = 0.3f,
 
             // Weapon.
+            attackCooldown = 1f,
             arrowSpeed = 20f,
             arrowDamage = 200f,
             arrowsValue = 1,
         };
 
-        public static readonly AnyBuilding WoodenWall = new AnyBuilding()
+        public static readonly AnyBuilding Wall = new AnyBuilding()
         {
+            // Wall.
             hp = 1,
-            touchDamage = 0.5f,
-            touchDamageCooldown = 1f,
+  
             
             cost = 5f,
         };
-
-        public static readonly AnyBuilding StoneWall = new AnyBuilding()
+        
+        public static readonly AnyBuilding ArcherTower = new AnyBuilding()
         {
-            hp = 2,
-            touchDamage = 1f,
-            touchDamageCooldown = 0.5f,
-            
-            cost = 5f,
-        };
-
-        public static readonly AnyBuilding ArcherTowerLvl1 = new AnyBuilding()
-        {
+            // ArcherTower.
             hp = 40,
+            
+            // Detection Area.
             attackRadius = 5f,
+            
+            // Weapon.
             attackCooldown = 0.5f,
-
+            // arrowSpeed = 10f,
+            // arrowDamage = 0.5f,
+            
             cost = 10f,
-            // arrowSpeed = 10f,
-            // arrowDamage = 0.5f,
         };
-        
-        public static readonly AnyBuilding ArcherTowerLvl2 = new AnyBuilding()
-        {
-            hp = 50,
-            attackRadius = 7f,
-            attackCooldown = 0.35f,
 
-            cost = 12f,
-            // arrowSpeed = 10f,
-            // arrowDamage = 0.5f,
-        };
-        
-        
 
-        public static List<AnyBuilding> AddAllBuildingsTypesToList()
+        private static List<AnyBuilding> AddAllBuildingsTypesToList()
         {
-            AllWallTypes.Add(WoodenWall);
+            AllWallTypes.Add(Wall);
             return AllWallTypes;
         }
 

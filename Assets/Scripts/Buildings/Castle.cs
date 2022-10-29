@@ -1,34 +1,18 @@
-using Common;
-using Enemies;
-using Interfaces;
-using UnityEngine;
-using static BuildingsStats.AnyBuilding;
 
-public class Castle : MonoBehaviour, IBuildingType
+using Unity.VisualScripting;
+
+public class Castle : Building
 {
-    private float _hp = BuildingsStats.AnyBuilding.Castle.hp;
-
-    [SerializeField]
-    private HealthBar healthBar;
-    public IBuildingType.BuildingType buildingType;
-
-    public IBuildingType.BuildingType SetType()
+    private void Awake()
     {
-        return buildingType;
+        Init(BuildingsStats.AnyBuilding.Castle);
+        SetWeaponParameters();
     }
 
-    private void Start()
+    
+    private void SetWeaponParameters()
     {
-        healthBar.maxHealth = _hp;
-    }
-
-   public void TakeDamage(float enemyDamage)
-    {
-        _hp -= enemyDamage;
-        healthBar.HealthUpdate(_hp);
-        if (_hp <= 0f)
-        {
-            Destroy(gameObject);
-        }
+        var weapon = GetComponentInChildren<ArrowWeapon>();
+        weapon.Init(BuildingsStats.AnyBuilding.Castle);
     }
 }

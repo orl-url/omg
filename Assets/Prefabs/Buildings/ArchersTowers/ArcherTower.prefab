@@ -41,9 +41,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2000267392898914511}
   - component: {fileID: 2000267392898914510}
-  - component: {fileID: 8436148853812943682}
   - component: {fileID: 4902904426779836530}
   - component: {fileID: 4802521783715860000}
+  - component: {fileID: -3411885901909325874}
   m_Layer: 6
   m_Name: ArcherTower
   m_TagString: ArcherTower
@@ -120,20 +120,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8436148853812943682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000267392898914509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586d09e1895a1524483ff0fe3941932f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingType: 2
-  healthBar: {fileID: 4902904426779836530}
 --- !u!114 &4902904426779836530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +159,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.02, y: 1.83}
   m_EdgeRadius: 0
+--- !u!114 &-3411885901909325874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000267392898914509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10538bf5536f12741ab3802c37d9e1c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  healthBar: {fileID: 4902904426779836530}
 --- !u!1 &2000267392991674033
 GameObject:
   m_ObjectHideFlags: 0

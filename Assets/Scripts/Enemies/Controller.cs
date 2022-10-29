@@ -9,15 +9,13 @@ namespace Enemies
     {
         //private Transform _castle;
         private float _speed;
-        public GameObject castle;
         
         private Rigidbody2D _rb;
         private Vector2 _target;
 
         private void Start()
         {
-            _rb = GetComponent<Rigidbody2D>();
-            _target = castle.transform.position;
+            _rb = GetComponentInParent<Rigidbody2D>();
         }
 
         public void Init(AnyGoblin anyGoblin)
@@ -32,7 +30,7 @@ namespace Enemies
 
         private void Move()
         {
-            var direction = (_target - (Vector2) transform.position).normalized;
+            var direction = (- (Vector2) transform.position).normalized;
             _rb.MovePosition((Vector2) _rb.transform.position + (direction* (_speed*Time.fixedDeltaTime)).normalized/15);
         }
     }

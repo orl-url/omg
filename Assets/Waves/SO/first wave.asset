@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: first wave
   m_EditorClassIdentifier: 
   steps:
-  - enemyPref: {fileID: 1848791217753964365, guid: b91e9a2abe0b0dc48bb970a82680de5c, type: 3}
+  - enemyPref: {fileID: 4662252793693348883, guid: b91e9a2abe0b0dc48bb970a82680de5c, type: 3}
     count: 74
     cooldown: 0.34
-  - enemyPref: {fileID: 3996347709324476331, guid: 259c8431188cb0242bd3d7e98ebf7718, type: 3}
+  - enemyPref: {fileID: 1848791217753964365, guid: ec982ef0beb912e4692abf8ae41319d1, type: 3}
     count: 0
     cooldown: 23.92

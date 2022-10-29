@@ -1,17 +1,24 @@
-using System;
 using Enemies;
+using Interfaces;
 using UnityEngine;
 using static BuildingsStats;
+using IEnemyDamageable = Interfaces.IEnemyDamageable;
 
 namespace Weapons
 {
     public class Arrow : MonoBehaviour
     {
-        private readonly float _speed = AnyBuilding.Castle.arrowSpeed;
-        private readonly float _damage = AnyBuilding.Castle.arrowDamage;
+        private float _speed;
+        private float _damage;
         
         private Rigidbody2D _rb;
 
+        public void Init(AnyBuilding anyBuilding)
+        {
+            _speed = anyBuilding.arrowSpeed;
+            _damage = anyBuilding.arrowDamage;
+        }
+        
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -30,9 +37,9 @@ namespace Weapons
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.TryGetComponent(out Enemy enemy))
+            if (col.TryGetComponent(out IEnemyDamageable damageable))
             {
-                enemy.TakeDamage(_damage);
+                damageable.TakeDamage(_damage);
                 Destroy(gameObject);
             }
         }

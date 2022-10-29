@@ -29,29 +29,29 @@ public class ShopButton : MonoBehaviour
 
     public void BeginDragTakeBuildingTypeAndCreate()
     {
-        var buildingOnButtonType = building.buildingType;
+        var buildingOnButtonType = building.type;
         switch (buildingOnButtonType)
         {
-            case IBuildingType.BuildingType.WoodenWall:
+            case BuildingType.Wall:
             {
-                CreateBuilding(building, WoodenWall);
+                CreateBuilding(building, BuildingsStats.AnyBuilding.Wall);
                 break;
             }
-            case IBuildingType.BuildingType.ArcherTowerLevel1:
+            case BuildingType.ArcherTower:
             {
-                CreateBuilding(building, ArcherTowerLvl1);
+                CreateBuilding(building, BuildingsStats.AnyBuilding.ArcherTower);
                 break;
             }
-            case IBuildingType.BuildingType.ArcherTowerLevel2:
-            {
-                CreateBuilding(building, ArcherTowerLvl2);
-                break;
-            }
-            case IBuildingType.BuildingType.StoneWall:
-            {
-                CreateBuilding(building, StoneWall);
-                break;
-            }
+            // case BuildingType.ArcherTowerLevel2:
+            // {
+            //     CreateBuilding(building, ArcherTowerLvl2);
+            //     break;
+            // }
+            // case BuildingType.StoneWall:
+            // {
+            //     CreateBuilding(building, StoneWall);
+            //     break;
+            // }
         }
     }
     
@@ -60,7 +60,7 @@ public class ShopButton : MonoBehaviour
         if (_buttonTotalGold.goldStorage >= buildingStats.cost)
         {
             _createdObject = Instantiate(buildingPref, GetMousePosition(), quaternion.identity);
-            _createdObject.Init(buildingStats);
+            // _createdObject.Init(buildingStats);
             _createdObject.transform.SetParent(GetComponentInParent<Canvas>().transform, true);
             allBuildings.Add(_createdObject);
         }
@@ -72,29 +72,26 @@ public class ShopButton : MonoBehaviour
         {
             _createdObject.transform.position = GetMousePosition();
             
-            if (_createdObject.buildingType != IBuildingType.BuildingType.ArcherTowerLevel1)
-            {
-                _createdObject.transform.up = GetMousePosition();
-            }
+            _createdObject.transform.up = GetMousePosition();
 
         }
     }
     
     public void EndDragPlaceBuilding()
     {
-        if (_buttonTotalGold.goldStorage >= WoodenWall.cost)
+        if (_buttonTotalGold.goldStorage >= BuildingsStats.AnyBuilding.Wall.cost)
         {
-            SendGoldValue(_createdObject.buildingType);
+            SendGoldValue(_createdObject.type);
             _createdObject = null;
         }
     }
     
     public void EndDragBuildingUpgrade()
     {
-        _createdObject.DropBuildingOnScreen(GetMousePosition(), _maxValue, _shopMask);
+        // _createdObject.DropBuildingOnScreen(GetMousePosition(), _maxValue, _shopMask);
     }
 
-    private void SendGoldValue(IBuildingType.BuildingType buildingType)
+    private void SendGoldValue(BuildingType buildingType)
     {
         _buttonTotalGold.SpendGold(buildingType);
     }

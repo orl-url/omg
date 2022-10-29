@@ -1,7 +1,6 @@
-
 namespace Interfaces
 {
-    public interface IDamageable
+    public interface IBuiDamageable
     {
         void TakeDamage(float damage);
     }

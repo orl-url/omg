@@ -18,30 +18,30 @@ namespace TotalMoney
             scoreDisplay.text = "Gold: " + goldStorage.ToString();
         }
         
-        public void SpendGold(IBuildingType.BuildingType buildingType)
+        public void SpendGold(BuildingType buildingType)
         {
             switch (buildingType)
             {
-                case IBuildingType.BuildingType.WoodenWall:
+                case BuildingType.Wall:
                 {
-                    goldStorage -= WoodenWall.cost;
+                    goldStorage -= BuildingsStats.AnyBuilding.Wall.cost;
                     break;
                 }
-                case IBuildingType.BuildingType.ArcherTowerLevel1:
+                case BuildingType.ArcherTower:
                 {
-                    goldStorage -= ArcherTowerLvl1.cost;
+                    goldStorage -= BuildingsStats.AnyBuilding.ArcherTower.cost;
                     break;
                 }
-                case IBuildingType.BuildingType.ArcherTowerLevel2:
-                {
-                    goldStorage -= ArcherTowerLvl2.cost;
-                    break;
-                }
-                case IBuildingType.BuildingType.StoneWall:
-                {
-                    goldStorage -= StoneWall.cost;
-                    break;
-                }
+                // case BuildingType.ArcherTowerLevel2:
+                // {
+                //     goldStorage -= ArcherTowerLvl2.cost;
+                //     break;
+                // }
+                // case BuildingType.StoneWall:
+                // {
+                //     goldStorage -= StoneWall.cost;
+                //     break;
+                // }
             }
         }
 

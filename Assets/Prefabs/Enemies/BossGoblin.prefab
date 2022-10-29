@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bdec7190c248e04c8e74067106ff606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  castle: {fileID: 0}
 --- !u!1 &1848791217246404268
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,9 +220,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1848791217753964361}
   - component: {fileID: 32702429724953226}
-  - component: {fileID: 4662252793693348883}
+  - component: {fileID: 1848791217753964365}
   m_Layer: 0
-  m_Name: LittleGoblin
+  m_Name: BossGoblin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -268,7 +269,7 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4662252793693348883
+--- !u!114 &1848791217753964365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,7 +278,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1848791217753964363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c71b7e2cd9c85904fbcf2dbe9482f3b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 026c62a0b81edeb40a0898c556dbcc5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
@@ -458,7 +459,7 @@ SpriteRenderer:
   m_SortingLayerID: 1502584355
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 800799ece97c6674abdf3e3a3faee1ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5ca08e737babe994d91552a7e693d99e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -515,7 +516,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.056222796}
+  m_Offset: {x: 0.02993679, y: -0.02670765}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -526,7 +527,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9, y: 5.112446}
+  m_Size: {x: 7.0242767, y: 8.94943}
   m_EdgeRadius: 0
 --- !u!114 &8278296422971513909
 MonoBehaviour:
@@ -597,7 +598,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7723171564168585762}
   - component: {fileID: 7186123020014551555}
-  - component: {fileID: 1272735256}
   m_Layer: 0
   m_Name: HitManager
   m_TagString: Untagged
@@ -632,29 +632,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c221aa0f3d128f42a3fd6fe2b980570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &1272735256
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7701880410758157464}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
