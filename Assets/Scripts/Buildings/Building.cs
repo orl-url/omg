@@ -1,13 +1,14 @@
 using Common;
 using Enemies;
+using Interfaces;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static BuildingsStats;
 
-public class Building : MonoBehaviour
+public class Building : MonoBehaviour, IBuildingType
 {
-    public BuildingType buildingType;
+    public IBuildingType.BuildingType buildingType;
         
     private float _hp, _damage, _attackRadius, _attackCooldown, _touchDamage, _touchDamageCooldown;
     private float _currentTime;
@@ -24,6 +25,11 @@ public class Building : MonoBehaviour
         _touchDamageCooldown = anyBuilding.touchDamageCooldown;
         
         healthBar.maxHealth = _hp;
+    }
+    
+    public IBuildingType.BuildingType SetType()
+    {
+        return buildingType;
     }
     
     private void Start()
@@ -55,7 +61,7 @@ public class Building : MonoBehaviour
         }
     }
 
-    public void DropBuilding(Vector3 getMousePosition, int maxValue, int shopMask)
+    public void DropBuildingOnScreen(Vector3 getMousePosition, int maxValue, int shopMask)
     {
         gameObject.SetActive(false);
         var hitInfo = Physics2D.Raycast(getMousePosition, Vector2.zero,maxValue, shopMask);
@@ -66,15 +72,13 @@ public class Building : MonoBehaviour
         transform.position = hitInfo.collider.transform.position;
         gameObject.SetActive(true);
         Destroy(hitInfo.collider.gameObject);
-
-        // Debug.Log("новые координаты стены  " + _createdObject.transform.position);
-        // Debug.Log("имя объекта к которому прикрепится стена  " + hitInfo.collider.name);
     }
 }
-public enum BuildingType
-{
-    WoodenWall,
-    StoneWall,
-    ArcherTowerLvl1,
-    ArcherTowerLvl2,
-}
+
+
+// public enum BuildingLevel
+// {
+//     Level1,
+//     Level2,
+//     Level3,
+// }

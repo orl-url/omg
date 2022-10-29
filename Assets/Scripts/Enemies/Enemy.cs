@@ -1,5 +1,6 @@
 using System;
 using Common;
+using Interfaces;
 using UnityEngine;
 using static EnemiesStats;
 
@@ -8,6 +9,8 @@ namespace Enemies
 {
     public class Enemy : MonoBehaviour
     {
+        public static Action<Enemy> onDied;
+
         private float _health, _damage, _attackCooldown, _coinsForDeath, _currentTime;
 
         public EnemyType enemyType;
@@ -55,15 +58,9 @@ namespace Enemies
 
         public void OnCollisionStay2D(Collision2D col)
         {
-            if (col.gameObject.TryGetComponent (out Building building) && _currentTime <= 0f)
+            if (col.gameObject.TryGetComponent (out IDamageable damageable) && _currentTime <= 0f)
             {
-                building.TakeDamage(_damage);
-                
-                _currentTime = _attackCooldown;
-            }
-            else if (col.gameObject.TryGetComponent (out CastleBuilding castle) && _currentTime <= 0f)
-            {
-                castle.TakeDamage(_damage);
+                damageable.TakeDamage(_damage);
                 
                 _currentTime = _attackCooldown;
             }
@@ -77,13 +74,22 @@ namespace Enemies
             healthBar.HealthUpdate(_health);
             if (_health <= 0f)
             {
+                Die();
                 Destroy(gameObject);
                 AnyGoblin.allEnemies.Remove(this);
                 DropCoin();
             }
         }
-        
-       private void DropCoin()
+
+        private void Die()
+        {
+            onDied?.Invoke(this);
+            Destroy(gameObject);
+            AnyGoblin.allEnemies.Remove(this);
+            DropCoin();
+        }
+
+        private void DropCoin()
        {
            for (int x = 1; x <= this._coinsForDeath; x++)
            {
@@ -91,6 +97,7 @@ namespace Enemies
            }
        }
     }
+    
 
     public enum EnemyType
     {

@@ -1,40 +1,36 @@
-using System;
 using UnityEngine;
-using static BuildingsStats; 
 using static BonusesStats;
 
-public class AttackBonuses : MonoBehaviour
+public class SpecialBonuses : MonoBehaviour
 {
     private CardManager _cardManager;
-    private readonly CardsTypes _typeThisCard = CardsTypes.AttackCard;
-
+    private readonly CardsTypes _typeThisCard = CardsTypes.SpecialCard;
+    
     private void Start()
     {
         _cardManager = gameObject.GetComponentInParent<CardManager>();
     }
     
-    public void IncreaseArrowDamage()
+    public void AddArrowWave()
     {
-        AnyBuilding.Castle.arrowDamage += 0.5f;
-        DeletingCards();
-    }
-    
-    public void IncreaseCastleAttackSpeed()
-    {
-        AnyBuilding.Castle.attackCooldown -= 0.15f;
+        flagCreateArrowWave = true;
         DeletingCards();
     }
 
-    
-    
+    public void SecondArrowFromCastle()
+    {
+        BuildingsStats.AnyBuilding.Castle.arrowsValue += 1;
+        DeletingCards();
+    }
 
+    // public void GoldPerWave()
+    // {
+        // _cardManager.totalGold.AddGold();
+    // }
+    
     private void DeletingCards()
     {
         _cardManager.DeleteCardFromList(_typeThisCard);
         _cardManager.DestroyScreenCardsAndPlayGame();
     }
 }
-
-
-
-

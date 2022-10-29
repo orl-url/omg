@@ -1,10 +1,5 @@
-using System;
 using TotalMoney;
-using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor.AssetImporters;
 using UnityEngine;
-using static BuildingsStats.AnyBuilding;
 
 public class PlacingObj : MonoBehaviour
 {

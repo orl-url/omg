@@ -13,7 +13,6 @@ public class WavesManager : MonoBehaviour
     private Vector2 _target;
     private EnemyWave _currentWave;
     private EnemyWave.Step _currentStep;
-    private Enemy _newEnemy;
     private AnyGoblin _typeOfCreatedEnemy;
     
     private int _waveIndex = -1, _stepIndex = -1, _enemyCount, _counterCurrentWave = 0;
@@ -73,10 +72,17 @@ public class WavesManager : MonoBehaviour
 
     private void TryCreateCards()
     {
-        if (enemyList.Count == 0 &&  _currentStep == null && _waveIndex < 100)
+        if (AnyGoblin.allEnemies.Count == 0 && _currentStep == null && _waveIndex < 100)
         {
             Time.timeScale = 0;
-            cardManager.CreateCards();
+            if (_waveIndex % 5 == 1 && _waveIndex != 0)
+            {
+                cardManager.CreateSpecialCards();
+            }
+            else
+            {
+                cardManager.CreateCommonCards();
+            }
             _counterCurrentWave += 1;
         }
     }
@@ -102,14 +108,13 @@ public class WavesManager : MonoBehaviour
     private void SpawnEnemy()
     {
         var spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        _newEnemy = Instantiate(_currentStep.enemyPref, spawnPoint.transform);
+         Instantiate(_currentStep.enemyPref, spawnPoint.transform);
 
         _enemyCount++;
     }
     
     public void PlayGame()
     {
-        // cardsCanvas.SetActive(false);
         Time.timeScale = 1;
         NextWave();
     }

@@ -1,4 +1,5 @@
 using System;
+using Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 using static BuildingsStats.AnyBuilding;
@@ -17,31 +18,36 @@ namespace TotalMoney
             scoreDisplay.text = "Gold: " + goldStorage.ToString();
         }
         
-        public void SpendGold(BuildingType buildingType)
+        public void SpendGold(IBuildingType.BuildingType buildingType)
         {
             switch (buildingType)
             {
-                case BuildingType.WoodenWall:
+                case IBuildingType.BuildingType.WoodenWall:
                 {
                     goldStorage -= WoodenWall.cost;
                     break;
                 }
-                case BuildingType.ArcherTowerLvl1:
+                case IBuildingType.BuildingType.ArcherTowerLevel1:
                 {
                     goldStorage -= ArcherTowerLvl1.cost;
                     break;
                 }
-                case BuildingType.ArcherTowerLvl2:
+                case IBuildingType.BuildingType.ArcherTowerLevel2:
                 {
                     goldStorage -= ArcherTowerLvl2.cost;
                     break;
                 }
-                case BuildingType.StoneWall:
+                case IBuildingType.BuildingType.StoneWall:
                 {
                     goldStorage -= StoneWall.cost;
                     break;
                 }
             }
+        }
+
+        public void AddGold(float goldValue)
+        {
+            goldStorage += goldValue;
         }
     }
 }

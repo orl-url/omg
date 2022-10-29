@@ -1,3 +1,4 @@
+using Interfaces;
 using TotalMoney;
 using Unity.Mathematics;
 using UnityEngine;
@@ -11,7 +12,7 @@ public class ShopButton : MonoBehaviour
 
     private TotalGold _buttonTotalGold;
     
-    private BuildingType _buildingOnButtonType;
+    // private BuildingType _buildingOnButtonType;
     private Building _createdObject;
 
     private void Start()
@@ -28,25 +29,25 @@ public class ShopButton : MonoBehaviour
 
     public void BeginDragTakeBuildingTypeAndCreate()
     {
-        _buildingOnButtonType = building.buildingType;
-        switch (_buildingOnButtonType)
+        var buildingOnButtonType = building.buildingType;
+        switch (buildingOnButtonType)
         {
-            case BuildingType.WoodenWall:
+            case IBuildingType.BuildingType.WoodenWall:
             {
                 CreateBuilding(building, WoodenWall);
                 break;
             }
-            case BuildingType.ArcherTowerLvl1:
+            case IBuildingType.BuildingType.ArcherTowerLevel1:
             {
                 CreateBuilding(building, ArcherTowerLvl1);
                 break;
             }
-            case BuildingType.ArcherTowerLvl2:
+            case IBuildingType.BuildingType.ArcherTowerLevel2:
             {
                 CreateBuilding(building, ArcherTowerLvl2);
                 break;
             }
-            case BuildingType.StoneWall:
+            case IBuildingType.BuildingType.StoneWall:
             {
                 CreateBuilding(building, StoneWall);
                 break;
@@ -71,7 +72,7 @@ public class ShopButton : MonoBehaviour
         {
             _createdObject.transform.position = GetMousePosition();
             
-            if (_createdObject.buildingType != BuildingType.ArcherTowerLvl1)
+            if (_createdObject.buildingType != IBuildingType.BuildingType.ArcherTowerLevel1)
             {
                 _createdObject.transform.up = GetMousePosition();
             }
@@ -90,10 +91,10 @@ public class ShopButton : MonoBehaviour
     
     public void EndDragBuildingUpgrade()
     {
-        _createdObject.DropBuilding(GetMousePosition(), _maxValue, _shopMask);
+        _createdObject.DropBuildingOnScreen(GetMousePosition(), _maxValue, _shopMask);
     }
 
-    private void SendGoldValue(BuildingType buildingType)
+    private void SendGoldValue(IBuildingType.BuildingType buildingType)
     {
         _buttonTotalGold.SpendGold(buildingType);
     }

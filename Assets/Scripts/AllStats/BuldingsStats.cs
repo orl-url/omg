@@ -10,6 +10,8 @@ public static class BuildingsStats
         
         public float cost;
 
+        public int arrowsValue;
+
         public static List<Building> allBuildings = new List<Building>();
 
         public static readonly List<AnyBuilding> AllWallTypes = new List<AnyBuilding>();
@@ -21,11 +23,12 @@ public static class BuildingsStats
             touchDamage = 0f,
             touchDamageCooldown = 0.5f,
             attackRadius = 15f,
-            attackCooldown = 0.5f,
+            attackCooldown = 0.3f,
 
             // Weapon.
-            arrowSpeed = 10f,
+            arrowSpeed = 20f,
             arrowDamage = 200f,
+            arrowsValue = 1,
         };
 
         public static readonly AnyBuilding WoodenWall = new AnyBuilding()
