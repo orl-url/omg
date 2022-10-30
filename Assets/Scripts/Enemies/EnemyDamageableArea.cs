@@ -1,17 +1,18 @@
-using Enemies;
 using Interfaces;
 using UnityEngine;
 
-public class EnemyDamageableArea : MonoBehaviour, IEnemyDamageable
+namespace Enemies
 {
-    [SerializeField] 
-    private GameObject someEnemy;
-
-    public void TakeDamage(float damage)
+    public class EnemyDamageableArea : MonoBehaviour, IEnemyDamageable
     {
-        Debug.Log("takedmg");
-        someEnemy.GetComponentInParent<LittleGoblin>().TakeDamage(damage);
+        [SerializeField] 
+        private GameObject someEnemy;
+
+        public void TakeDamage(float damage)
+        {
+            someEnemy.GetComponentInParent<Enemy>().TakeDamage(damage);
+        }
+    
+    
     }
-    
-    
 }

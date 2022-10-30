@@ -25,7 +25,10 @@ namespace Enemies
 
         private void FixedUpdate()
         {
-            Move();
+            if (_rb.bodyType == RigidbodyType2D.Dynamic)
+            {
+                Move();
+            }
         }
 
         private void Move()

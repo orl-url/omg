@@ -13,7 +13,7 @@ public class DetectionArea : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.TryGetComponent(out IEnemyDamageable enemy))
+        if (col.TryGetComponent(out IEnemyDamageable _))
         {
             var enemyCor = col.gameObject.GetComponentInParent<Enemy>();
             DetectEnemy(enemyCor);

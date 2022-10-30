@@ -8,9 +8,9 @@ public static class EnemiesStats
     {
         public float health;
 
-        public float damage;
+        public float meleeDamage, rangeDamage;
 
-        public float attackCooldown;
+        public float meleeAttackCooldown, rangeAttackCooldown;
 
         public float coinsForDeath;
 
@@ -23,17 +23,31 @@ public static class EnemiesStats
         public static readonly AnyGoblin LittleGoblin = new AnyGoblin()
         {
             health = 100f,
-            damage = 20,
-            attackCooldown = 1,
+            meleeDamage = 20,
+            meleeAttackCooldown = 1,
             coinsForDeath = 2,
             speed = 1f,
         };
 
+        public static readonly AnyGoblin GoblinDefender = new AnyGoblin()
+        {
+            health = 100f,
+            meleeDamage = 25f,
+            meleeAttackCooldown = 0.5f,
+            
+            rangeDamage = 50f,
+            rangeAttackCooldown = 0.2f,
+            
+            coinsForDeath = 1,
+            speed = 1f,
+        };
+        
+        
         public static readonly AnyGoblin BossGoblin = new AnyGoblin()
         {
             health = 200f,
-            damage = 40f,
-            attackCooldown = 0.2f,
+            meleeDamage = 40f,
+            meleeAttackCooldown = 0.2f,
             coinsForDeath = 1,
             speed = 2f,
         };
@@ -58,12 +72,12 @@ public static class EnemiesStats
                         break;
                     case EnemyStats.Damage:
                     {
-                        goblin.damage += value;
+                        goblin.meleeDamage += value;
                         break;
                     }
                     case EnemyStats.AttackCooldown:
                     {
-                        goblin.attackCooldown += value;
+                        goblin.meleeAttackCooldown += value;
                         break;
                     }
                     case EnemyStats.CoinsForDeath:
@@ -78,16 +92,6 @@ public static class EnemiesStats
                     }
                 }
             }
-        }
-        
-        public enum EnemyStats
-        {
-            Health,
-            Damage,
-            AttackCooldown,
-            CoinsForDeath,
-            Speed,
-            
         }
     }
 }

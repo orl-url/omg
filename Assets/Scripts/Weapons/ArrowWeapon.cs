@@ -77,7 +77,6 @@ public class ArrowWeapon : MonoBehaviour
 
     private void Shoot()
     {
-        Debug.Log("Shoot");
         var enemy = GetCurrentEnemy();
         var createdArrow = spawner.SpawnArrow(enemy.transform.position);
         createdArrow.Init(_anyBuilding);

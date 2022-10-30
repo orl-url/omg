@@ -1,4 +1,5 @@
 using System;
+using Enemies;
 using UnityEngine;
 using static EnemiesStats;
 using static BuildingsStats;
@@ -16,7 +17,7 @@ public class OtherBonuses : MonoBehaviour
 
     public void IncreaseCoinsValue()
     {
-        AnyGoblin.DoForAllElements(AnyGoblin.EnemyStats.CoinsForDeath, 5);
+        AnyGoblin.DoForAllElements(EnemyStats.CoinsForDeath, 5);
         DeletingCards();
     }
     
@@ -28,7 +29,7 @@ public class OtherBonuses : MonoBehaviour
 
     public void SlowDownTheEnemy()
     {
-        AnyGoblin.DoForAllElements(AnyGoblin.EnemyStats.Speed, 0.9f);
+        AnyGoblin.DoForAllElements(EnemyStats.Speed, 0.9f);
         DeletingCards();
     }
 

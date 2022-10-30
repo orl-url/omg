@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bdec7190c248e04c8e74067106ff606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castle: {fileID: 0}
 --- !u!1 &1848791217246404268
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 026c62a0b81edeb40a0898c556dbcc5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 0
+  enemyType: 2
   coin: {fileID: 2886252648418929232, guid: 72fcb169b5b59474cafef4f814491b2f, type: 3}
   healthBar: {fileID: 4029149677498283460}
 --- !u!1 &1848791218365827925

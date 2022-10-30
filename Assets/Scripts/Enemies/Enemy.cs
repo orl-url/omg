@@ -23,17 +23,17 @@ namespace Enemies
             _health = anyGoblin.health;
             _coinsForDeath = anyGoblin.coinsForDeath;
 
-            HitManagerInit(anyGoblin);
+            // HitInit(anyGoblin);
             ControllerInit(anyGoblin);
             SetMaxHpInHealthBar(anyGoblin);
             AddToStaticListOfEnemies();
         }
 
-        private void HitManagerInit(AnyGoblin anyGoblin)
-        {
-            var hitManager = GetComponentInChildren<HitManager>();
-            hitManager.Init(anyGoblin);
-        }
+        // private void HitInit(AnyGoblin anyGoblin)
+        // {
+        //     var meleeHit = GetComponentInChildren<Hit>();
+        //     meleeHit.Init(anyGoblin);
+        // }
         
         private void ControllerInit(AnyGoblin anyGoblin)
         {
@@ -75,7 +75,7 @@ namespace Enemies
 
         private void DropCoin()
        {
-           for (int x = 1; x <= this._coinsForDeath; x++)
+           for (int x = 1; x <= _coinsForDeath; x++)
            {
                Instantiate(coin, transform.position, Quaternion.identity);
            }
