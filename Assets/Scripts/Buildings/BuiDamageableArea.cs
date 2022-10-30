@@ -8,7 +8,6 @@ public class BuiDamageableArea : MonoBehaviour, IBuiDamageable
 
     public void TakeDamage(float damage)
     {
-        Debug.Log("buiTakeDmg");
         someBuilding.GetComponentInParent<Building>().TakeDamage(damage);
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Enemies;
+using Interfaces;
 using UnityEngine;
 using Weapons;
 using Random = UnityEngine.Random;

@@ -10,7 +10,7 @@ public class EnemyDamageableArea : MonoBehaviour, IEnemyDamageable
     public void TakeDamage(float damage)
     {
         Debug.Log("takedmg");
-        someEnemy.GetComponentInParent<Enemy>().TakeDamage(damage);
+        someEnemy.GetComponentInParent<LittleGoblin>().TakeDamage(damage);
     }
     
     

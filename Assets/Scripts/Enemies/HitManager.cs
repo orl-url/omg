@@ -30,7 +30,6 @@ public class HitManager : MonoBehaviour
     
     private void OnCollisionStay2D(Collision2D col)
     {
-        Debug.Log("attackToBui");
         if (col.gameObject.TryGetComponent (out IBuiDamageable damageable) && _currentTime <= 0f)
         {
             damageable.TakeDamage(_damage);
@@ -39,3 +38,4 @@ public class HitManager : MonoBehaviour
         }
     }
 }
+

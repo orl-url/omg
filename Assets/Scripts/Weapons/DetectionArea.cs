@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Enemies;
+using Interfaces;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,9 +13,10 @@ public class DetectionArea : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.TryGetComponent(out Enemy enemy))
+        if (col.TryGetComponent(out IEnemyDamageable enemy))
         {
-            DetectEnemy(enemy);
+            var enemyCor = col.gameObject.GetComponentInParent<Enemy>();
+            DetectEnemy(enemyCor);
         }
     }
 

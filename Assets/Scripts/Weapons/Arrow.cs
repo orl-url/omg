@@ -39,6 +39,7 @@ namespace Weapons
         {
             if (col.TryGetComponent(out IEnemyDamageable damageable))
             {
+                Debug.Log("usingInt");
                 damageable.TakeDamage(_damage);
                 Destroy(gameObject);
             }
