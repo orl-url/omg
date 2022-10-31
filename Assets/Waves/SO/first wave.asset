@@ -21,4 +21,4 @@ MonoBehaviour:
     cooldown: 23.92
   - enemyPref: {fileID: 4513051317000681005, guid: b16268fc5fed2124abed2c6f4d8f94cd, type: 3}
     count: 7
-    cooldown: 2.41
+    cooldown: 20.99

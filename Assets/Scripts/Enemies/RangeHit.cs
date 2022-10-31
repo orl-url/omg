@@ -1,19 +1,26 @@
 using System;
 using Interfaces;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Enemies
 {
     public class RangeHit : Hit
     {
+        [SerializeField] private Shield shield;
+        [SerializeField] private InactiveShield inactiveShield;
+        [SerializeField] private Castle castle;
+       
         private Collider2D _collider2D;
-        private bool _isShieldDestroyed;
-        public Shield shield;
+        private InactiveShield _createdShield;
 
-        private void Awake()
+        private float _rangeDmg;
+        private float _rangeAttackCld;
+        private bool _isShieldDestroyed;
+
+        public new void Init(EnemiesStats.AnyGoblin anyGoblin)
         {
-            Init(EnemiesStats.AnyGoblin.GoblinDefender);
+            _rangeDmg = anyGoblin.rangeDamage;
+            _rangeAttackCld = anyGoblin.rangeAttackCooldown;
         }
 
         private void FixedUpdate()
@@ -21,24 +28,24 @@ namespace Enemies
             _isShieldDestroyed = shield.isShieldDestroyed;
         }
 
-        private void RangeAttack(IBuiDamageable damageable)
+        private void CreateShield()
         {
             if (_isShieldDestroyed)
                 return;
             
             shield.gameObject.SetActive(false);
             
-            
-            
-            damageable.TakeDamage(_rangeDamage);
+            _createdShield = Instantiate(inactiveShield, shield.transform.position, Quaternion.identity);
+            _createdShield.transform.SetParent(this.transform);
+            _createdShield.Init(shield,GetComponentInParent<Enemy>(), castle, _rangeDmg);
         }
-
+        
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (col.gameObject.TryGetComponent(out IBuiDamageable damageable))
             {
-                RangeAttack(damageable);
                 gameObject.GetComponentInParent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                CreateShield();
             }
         }
     }

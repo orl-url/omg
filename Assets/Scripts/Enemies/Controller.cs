@@ -7,7 +7,6 @@ namespace Enemies
 {
     public class Controller : MonoBehaviour
     {
-        //private Transform _castle;
         private float _speed;
         
         private Rigidbody2D _rb;

@@ -17,23 +17,31 @@ namespace Enemies
         public GameObject coin;
         public HealthBar healthBar;
 
-
+        
         protected void Init(AnyGoblin anyGoblin)
         {
             _health = anyGoblin.health;
             _coinsForDeath = anyGoblin.coinsForDeath;
 
-            // HitInit(anyGoblin);
+            MeleeHitInit(anyGoblin);
+            RangeHitInit(anyGoblin);
             ControllerInit(anyGoblin);
             SetMaxHpInHealthBar(anyGoblin);
             AddToStaticListOfEnemies();
         }
 
-        // private void HitInit(AnyGoblin anyGoblin)
-        // {
-        //     var meleeHit = GetComponentInChildren<Hit>();
-        //     meleeHit.Init(anyGoblin);
-        // }
+        
+        private void MeleeHitInit(AnyGoblin anyGoblin)
+        {
+            var meleeHit = GetComponentInChildren<MeleeHit>();
+            meleeHit.Init(anyGoblin);
+        }
+        
+        private void RangeHitInit(AnyGoblin anyGoblin)
+        {
+            var rangeHit = GetComponentInChildren<RangeHit>();
+            rangeHit.Init(anyGoblin);
+        }
         
         private void ControllerInit(AnyGoblin anyGoblin)
         {
