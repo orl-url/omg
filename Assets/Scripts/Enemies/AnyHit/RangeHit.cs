@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class RangeHit : Hit
+    public class RangeHit : MonoBehaviour
     {
         [SerializeField] private Shield shield;
         [SerializeField] private InactiveShield inactiveShield;
-        [SerializeField] private Castle castle;
+        private Castle castle;
        
         private Collider2D _collider2D;
         private InactiveShield _createdShield;
@@ -17,10 +17,15 @@ namespace Enemies
         private float _rangeAttackCld;
         private bool _isShieldDestroyed;
 
-        public new void Init(EnemiesStats.AnyGoblin anyGoblin)
+        public void Init(EnemiesStats.AnyGoblin anyGoblin)
         {
             _rangeDmg = anyGoblin.rangeDamage;
             _rangeAttackCld = anyGoblin.rangeAttackCooldown;
+        }
+
+        private void Start()
+        {
+            castle = FindObjectOfType<Castle>();
         }
 
         private void FixedUpdate()

@@ -12,7 +12,6 @@ namespace Enemies
         private bool _toReturn = false;
         private float _speed = 5f;
         private float _rangeDamage;
-        // private bool _flag = false;
 
         public void Init(Shield shield, Enemy currentEnemy, Castle castle, float rangeDamage)
         {

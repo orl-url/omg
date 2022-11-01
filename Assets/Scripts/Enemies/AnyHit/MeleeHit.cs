@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class MeleeHit : Hit
+    public class MeleeHit : MonoBehaviour
     {
-        // private  float _meleeDamage;
-        // private float _meleeAttackCooldown;
+        private  float _meleeDamage;
+        private float _meleeAttackCooldown;
         private float _meleeTimer;
         
         

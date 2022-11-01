@@ -13,10 +13,10 @@ namespace Enemies
 
         private float _health,_coinsForDeath;
 
-        public EnemyType enemyType;
+        // public EnemyType enemyType;
         public GameObject coin;
         public HealthBar healthBar;
-
+        
         
         protected void Init(AnyGoblin anyGoblin)
         {
@@ -39,8 +39,8 @@ namespace Enemies
         
         private void RangeHitInit(AnyGoblin anyGoblin)
         {
-            var rangeHit = GetComponentInChildren<RangeHit>();
-            rangeHit.Init(anyGoblin);
+            if ( gameObject.TryGetComponent(out RangeHit rangeHit))
+                rangeHit.Init(anyGoblin);
         }
         
         private void ControllerInit(AnyGoblin anyGoblin)
