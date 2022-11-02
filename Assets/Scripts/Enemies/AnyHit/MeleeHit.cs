@@ -9,13 +9,14 @@ namespace Enemies
         private  float _meleeDamage;
         private float _meleeAttackCooldown;
         private float _meleeTimer;
-
+        
+        
         private void Start()
         {
             _meleeTimer = _meleeAttackCooldown;
         }
         
-        public void Init(EnemiesStats.AnyGoblin anyGoblin)
+        public new void Init(EnemiesStats.AnyGoblin anyGoblin)
         {
             _meleeDamage = anyGoblin.meleeDamage;
             _meleeAttackCooldown = anyGoblin.meleeAttackCooldown;

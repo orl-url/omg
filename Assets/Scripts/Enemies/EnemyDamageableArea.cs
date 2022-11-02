@@ -10,7 +10,6 @@ namespace Enemies
 
         public void TakeDamage(float damage)
         {
-            Debug.Log("enemyTakeDamage");
             someEnemy.GetComponentInParent<Enemy>().TakeDamage(damage);
         }
     

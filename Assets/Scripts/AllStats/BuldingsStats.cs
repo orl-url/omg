@@ -20,12 +20,12 @@ public static class BuildingsStats
             hp = 100,
 
             // Detection Area.
-            attackRadius = 15f,
+            attackRadius = 10f,
 
             // Weapon.
-            attackCooldown = 0.5f,
-            arrowSpeed = 15f,
-            arrowDamage = 50f,
+            attackCooldown = 1f,
+            arrowSpeed = 20f,
+            arrowDamage = 2f,
             arrowsValue = 1,
         };
 

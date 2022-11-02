@@ -8,7 +8,7 @@ namespace Enemies
     {
         [SerializeField] private Shield shield;
         [SerializeField] private InactiveShield inactiveShield;
-        private Castle _castle;
+        private Castle castle;
        
         private Collider2D _collider2D;
         private InactiveShield _createdShield;
@@ -25,26 +25,12 @@ namespace Enemies
 
         private void Start()
         {
-            _castle = FindObjectOfType<Castle>();
+            castle = FindObjectOfType<Castle>();
         }
 
         private void FixedUpdate()
         {
             _isShieldDestroyed = shield.isShieldDestroyed;
-        }
-
-        private void OnTriggerEnter2D(Collider2D col)
-        {
-            if (col.gameObject.TryGetComponent(out IBuiDamageable damageable))
-            {
-                MakeObjIsStatic();
-                CreateShield();
-            }
-        }
-
-        private void MakeObjIsStatic()
-        {
-            gameObject.GetComponentInParent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
 
         private void CreateShield()
@@ -56,7 +42,16 @@ namespace Enemies
             
             _createdShield = Instantiate(inactiveShield, shield.transform.position, Quaternion.identity);
             _createdShield.transform.SetParent(this.transform);
-            _createdShield.Init(shield,GetComponentInParent<Enemy>(), _castle, _rangeDmg);
+            _createdShield.Init(shield,GetComponentInParent<Enemy>(), castle, _rangeDmg);
+        }
+        
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            if (col.gameObject.TryGetComponent(out IBuiDamageable damageable))
+            {
+                gameObject.GetComponentInParent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                CreateShield();
+            }
         }
     }
 }

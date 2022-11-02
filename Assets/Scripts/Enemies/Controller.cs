@@ -34,7 +34,7 @@ namespace Enemies
         {
             var direction = (- (Vector2) transform.position).normalized;
             _rb.MovePosition((Vector2) _rb.transform.position + (direction* (_speed*Time.fixedDeltaTime)).normalized/15);
-            _rb.transform.up = -direction;
+            // _rb.transform.up = direction;
         }
     }
 }
