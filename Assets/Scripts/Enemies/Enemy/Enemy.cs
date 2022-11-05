@@ -1,6 +1,5 @@
 using System;
 using Common;
-using Interfaces;
 using UnityEngine;
 using static EnemiesStats;
 
@@ -13,7 +12,6 @@ namespace Enemies
 
         private float _health,_coinsForDeath;
 
-        // public EnemyType enemyType;
         public GameObject coin;
         public HealthBar healthBar;
         

@@ -16,7 +16,7 @@ namespace Enemies
             _meleeTimer = _meleeAttackCooldown;
         }
         
-        public new void Init(EnemiesStats.AnyGoblin anyGoblin)
+        public void Init(EnemiesStats.AnyGoblin anyGoblin)
         {
             _meleeDamage = anyGoblin.meleeDamage;
             _meleeAttackCooldown = anyGoblin.meleeAttackCooldown;

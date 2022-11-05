@@ -42,6 +42,15 @@ public static class EnemiesStats
             speed = 1f,
         };
         
+        public static readonly AnyGoblin ThrowerGoblin = new AnyGoblin()
+        {
+            health = 300f,
+            meleeDamage = 1f,
+            meleeAttackCooldown = 0.2f,
+            coinsForDeath = 5,
+            speed = 3f,
+        };
+        
         
         public static readonly AnyGoblin BossGoblin = new AnyGoblin()
         {

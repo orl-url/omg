@@ -7,8 +7,8 @@ using static BuildingsStats.AnyBuilding;
 public class ShopButton : MonoBehaviour
 {
     public Building building;
-    readonly int _shopMask = 1 << 6;
-    private readonly int _maxValue = int.MaxValue;
+    // readonly int _shopMask = 1 << 6;
+    // private readonly int _maxValue = int.MaxValue;
 
     private TotalGold _buttonTotalGold;
     

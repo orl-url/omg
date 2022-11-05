@@ -25,7 +25,7 @@ public static class BuildingsStats
             // Weapon.
             attackCooldown = 1f,
             arrowSpeed = 20f,
-            arrowDamage = 2f,
+            arrowDamage = 35f,
             arrowsValue = 1,
         };
 

@@ -279,7 +279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c71b7e2cd9c85904fbcf2dbe9482f3b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 0
   coin: {fileID: 2886252648418929232, guid: 72fcb169b5b59474cafef4f814491b2f, type: 3}
   healthBar: {fileID: 4029149677498283460}
 --- !u!1 &1848791218365827925
@@ -457,7 +456,7 @@ SpriteRenderer:
   m_SortingLayerID: 1502584355
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 800799ece97c6674abdf3e3a3faee1ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d96b11e4b1c560a49a334ee27f313cda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -515,7 +514,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.056222796}
+  m_Offset: {x: -0.120294094, y: -0.03250146}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -526,7 +525,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9, y: 5.112446}
+  m_Size: {x: 3.9476528, y: 3.7366085}
   m_EdgeRadius: 0
 --- !u!114 &8278296422971513909
 MonoBehaviour:
