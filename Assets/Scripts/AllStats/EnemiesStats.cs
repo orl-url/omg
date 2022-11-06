@@ -16,7 +16,7 @@ public static class EnemiesStats
 
         public float speed;
 
-        public static readonly List<Enemy> allEnemies = new List<Enemy>();
+        public static readonly List<Enemy> AllEnemies = new List<Enemy>();
 
         private static readonly List<AnyGoblin> AllGoblinsTypes = new List<AnyGoblin>();
 
@@ -29,7 +29,7 @@ public static class EnemiesStats
             speed = 1f,
         };
 
-        public static readonly AnyGoblin GoblinDefender = new AnyGoblin()
+        public static AnyGoblin GoblinDefender = new AnyGoblin()
         {
             health = 100f,
             meleeDamage = 25f,
@@ -45,10 +45,14 @@ public static class EnemiesStats
         public static readonly AnyGoblin ThrowerGoblin = new AnyGoblin()
         {
             health = 300f,
-            meleeDamage = 1f,
-            meleeAttackCooldown = 0.2f,
-            coinsForDeath = 5,
-            speed = 3f,
+            meleeDamage = 10f,
+            meleeAttackCooldown = 0.5f,
+            
+            rangeDamage = 10f,
+            rangeAttackCooldown = 0.2f,
+            
+            coinsForDeath = 1,
+            speed = 1f,
         };
         
         

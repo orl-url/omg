@@ -9,7 +9,7 @@ public class WavesManager : MonoBehaviour
     public EnemyWave[] waves;
     public CardManager cardManager;
 
-    public List<Enemy> enemyList = AnyGoblin.allEnemies;
+    public List<Enemy> enemyList = AnyGoblin.AllEnemies;
     private Vector2 _target;
     private EnemyWave _currentWave;
     private EnemyWave.Step _currentStep;
@@ -72,7 +72,7 @@ public class WavesManager : MonoBehaviour
 
     private void TryCreateCards()
     {
-        if (AnyGoblin.allEnemies.Count == 0 && _currentStep == null && _waveIndex < 100)
+        if (AnyGoblin.AllEnemies.Count == 0 && _currentStep == null && _waveIndex < 100)
         {
             Time.timeScale = 0;
             if (_waveIndex % 5 == 1 && _waveIndex != 0)

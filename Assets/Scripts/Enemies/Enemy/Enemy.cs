@@ -1,5 +1,6 @@
 using System;
 using Common;
+using Unity.VisualScripting;
 using UnityEngine;
 using static EnemiesStats;
 
@@ -10,12 +11,16 @@ namespace Enemies
     {
         public static Action<Enemy> onDied;
 
+        
+        
         private float _health,_coinsForDeath;
+        public bool beUsedForThrow = false;
 
         public GameObject coin;
         public HealthBar healthBar;
-        
-        
+        internal Controller controller;
+
+
         protected void Init(AnyGoblin anyGoblin)
         {
             _health = anyGoblin.health;
@@ -37,19 +42,24 @@ namespace Enemies
         
         private void RangeHitInit(AnyGoblin anyGoblin)
         {
-            if ( gameObject.TryGetComponent(out RangeHit rangeHit))
-                rangeHit.Init(anyGoblin);
+            RangeHit rangeHit;
+            
+            if (rangeHit = gameObject.GetComponentInChildren<RangeHit>())
+            {
+               rangeHit.Init(anyGoblin);
+                // Debug.Log("rangeHitInit - did ");
+            }
         }
         
         private void ControllerInit(AnyGoblin anyGoblin)
         {
-            var controller = GetComponentInChildren<Controller>();
+            controller = GetComponentInChildren<Controller>();
             controller.Init(anyGoblin);
         }
         
         private void AddToStaticListOfEnemies()
         {  
-            AnyGoblin.allEnemies.Add(this);
+            AnyGoblin.AllEnemies.Add(this);
         }
         
         private void SetMaxHpInHealthBar(AnyGoblin anyGoblin)
@@ -66,7 +76,7 @@ namespace Enemies
             {
                 Die();
                 Destroy(gameObject);
-                AnyGoblin.allEnemies.Remove(this);
+                AnyGoblin.AllEnemies.Remove(this);
                 DropCoin();
             }
         }
@@ -75,7 +85,7 @@ namespace Enemies
         {
             onDied?.Invoke(this);
             Destroy(gameObject);
-            AnyGoblin.allEnemies.Remove(this);
+            AnyGoblin.AllEnemies.Remove(this);
             DropCoin();
         }
 

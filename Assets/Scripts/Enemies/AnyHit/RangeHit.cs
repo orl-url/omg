@@ -6,20 +6,16 @@ namespace Enemies
 {
     public class RangeHit : MonoBehaviour
     {
-        [SerializeField] private Shield shield;
-        [SerializeField] private InactiveShield inactiveShield;
-        private Castle castle;
+        protected Castle castle;
        
-        private Collider2D _collider2D;
-        private InactiveShield _createdShield;
+        // private Collider2D _collider2D;
 
-        private float _rangeDmg;
+        protected float rangeDmg;
         private float _rangeAttackCld;
-        private bool _isShieldDestroyed;
 
         public void Init(EnemiesStats.AnyGoblin anyGoblin)
         {
-            _rangeDmg = anyGoblin.rangeDamage;
+            rangeDmg = anyGoblin.rangeDamage;
             _rangeAttackCld = anyGoblin.rangeAttackCooldown;
         }
 
@@ -28,30 +24,9 @@ namespace Enemies
             castle = FindObjectOfType<Castle>();
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
-            _isShieldDestroyed = shield.isShieldDestroyed;
-        }
-
-        private void CreateShield()
-        {
-            if (_isShieldDestroyed)
-                return;
-            
-            shield.gameObject.SetActive(false);
-            
-            _createdShield = Instantiate(inactiveShield, shield.transform.position, Quaternion.identity);
-            _createdShield.transform.SetParent(this.transform);
-            _createdShield.Init(shield,GetComponentInParent<Enemy>(), castle, _rangeDmg);
-        }
-        
-        private void OnTriggerEnter2D(Collider2D col)
-        {
-            if (col.gameObject.TryGetComponent(out IBuiDamageable damageable))
-            {
-                gameObject.GetComponentInParent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-                CreateShield();
-            }
+            // Debug.Log("RangeHit - rangeDmg " + rangeDmg);
         }
     }
 }
