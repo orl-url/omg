@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c71b7e2cd9c85904fbcf2dbe9482f3b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beUsedForThrow: 0
   coin: {fileID: 2886252648418929232, guid: 72fcb169b5b59474cafef4f814491b2f, type: 3}
   healthBar: {fileID: 4029149677498283460}
 --- !u!1 &1848791218365827925

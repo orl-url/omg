@@ -11,7 +11,7 @@ namespace Enemies
     {
         public static Action<Enemy> onDied;
 
-        
+        public EnemyType enemyType;
         
         private float _health,_coinsForDeath;
         public bool beUsedForThrow = false;
@@ -21,7 +21,7 @@ namespace Enemies
         internal Controller controller;
 
 
-        protected void Init(AnyGoblin anyGoblin)
+        internal void Init(AnyGoblin anyGoblin)
         {
             _health = anyGoblin.health;
             _coinsForDeath = anyGoblin.coinsForDeath;
@@ -36,8 +36,11 @@ namespace Enemies
         
         private void MeleeHitInit(AnyGoblin anyGoblin)
         {
-            var meleeHit = GetComponentInChildren<MeleeHit>();
-            meleeHit.Init(anyGoblin);
+            MeleeHit meleeHit;
+            if (meleeHit = gameObject.GetComponentInChildren<MeleeHit>())
+            {
+                meleeHit.Init(anyGoblin);
+            }
         }
         
         private void RangeHitInit(AnyGoblin anyGoblin)

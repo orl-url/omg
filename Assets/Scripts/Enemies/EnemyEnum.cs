@@ -6,9 +6,9 @@ namespace Enemies
 {
     public enum EnemyType
     {
-        LittleGoblin,
-        GoblinDefender,
-        BossGoblin,
+        Little,
+        Medium,
+        High,
     }
 
     public enum EnemyStats

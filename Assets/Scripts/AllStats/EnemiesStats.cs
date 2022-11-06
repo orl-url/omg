@@ -26,7 +26,7 @@ public static class EnemiesStats
             meleeDamage = 20,
             meleeAttackCooldown = 1,
             coinsForDeath = 2,
-            speed = 1f,
+            speed = 0.5f,
         };
 
         public static AnyGoblin GoblinDefender = new AnyGoblin()
@@ -52,7 +52,20 @@ public static class EnemiesStats
             rangeAttackCooldown = 0.2f,
             
             coinsForDeath = 1,
-            speed = 1f,
+            speed = 2.5f,
+        };
+        
+        public static readonly AnyGoblin ArcherGoblin = new AnyGoblin()
+        {
+            health = 200f,
+            // meleeDamage = 10f,
+            // meleeAttackCooldown = 0.5f,
+            
+            rangeDamage = 15f,
+            rangeAttackCooldown = 0.3f,
+            
+            coinsForDeath = 1,
+            speed = 2.5f,
         };
         
         
