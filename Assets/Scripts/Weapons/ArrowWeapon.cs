@@ -1,14 +1,11 @@
-using System;
 using System.Collections.Generic;
 using Enemies;
-using Interfaces;
 using UnityEngine;
-using Weapons;
 using Random = UnityEngine.Random;
 
 public class ArrowWeapon : MonoBehaviour
 {
-    [SerializeField] private ArrowsSpawner spawner;
+    [SerializeField] private ArrowsSpawner arrowsSpawner;
 
     private readonly List<Enemy> _enemies = new List<Enemy>();
     private Enemy _currentEnemy;
@@ -22,7 +19,7 @@ public class ArrowWeapon : MonoBehaviour
         _attackCooldown = anyBuilding.attackCooldown;
         
         SetAttackRadius(GetComponent<CircleCollider2D>(), anyBuilding);
-        SetArrowParameters(anyBuilding);
+        // SetArrowParameters(anyBuilding);
     }
 
     private void SetAttackRadius(CircleCollider2D attackArea, BuildingsStats.AnyBuilding anyBuilding)
@@ -30,10 +27,10 @@ public class ArrowWeapon : MonoBehaviour
         attackArea.radius = anyBuilding.attackRadius;
     }
 
-    private void SetArrowParameters(BuildingsStats.AnyBuilding anyBuilding)
-    {
-        spawner.arrow.Init(anyBuilding);
-    }
+    // private void SetArrowParameters(BuildingsStats.AnyBuilding anyBuilding)
+    // {
+    //     spawner.Init(anyBuilding);
+    // }
     
 
     private void OnEnable()
@@ -77,9 +74,9 @@ public class ArrowWeapon : MonoBehaviour
 
     private void Shoot()
     {
+        // Добавить свич.
         var enemy = GetCurrentEnemy();
-        var createdArrow = spawner.SpawnArrow(enemy.transform.position);
-        createdArrow.Init(_anyBuilding);
+        var createdArrow = arrowsSpawner.Spawn(enemy.transform.position, BuildingsStats.AnyBuilding.Castle.arrowDamage);
     }
 
     private Enemy GetCurrentEnemy()

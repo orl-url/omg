@@ -19,8 +19,7 @@ namespace Enemies
         public GameObject coin;
         public HealthBar healthBar;
         internal Controller controller;
-
-
+        
         internal void Init(AnyGoblin anyGoblin)
         {
             _health = anyGoblin.health;

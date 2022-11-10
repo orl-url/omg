@@ -33,9 +33,12 @@ namespace Enemies
 
         private void OnCollisionStay2D(Collision2D col)
         {
-            if (col.gameObject.TryGetComponent (out IBuiDamageable damageable) && _meleeTimer <= 0f)
+            if (_meleeTimer > 0f) 
+                return;
+            
+            if (col.collider.TryGetComponent (out IBuiDamageable buiDamageable))
             {
-                damageable.TakeDamage(_meleeDamage);
+                buiDamageable.TakeDamage(_meleeDamage);
             
                 _meleeTimer = _meleeAttackCooldown;
             }

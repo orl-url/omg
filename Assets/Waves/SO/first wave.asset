@@ -15,7 +15,7 @@ MonoBehaviour:
   steps:
   - enemyPref: {fileID: 6148072662146580304, guid: eb5780df90d94074bad46e1608c48d1b, type: 3}
     count: 4
-    cooldown: 8.05
+    cooldown: 7.59
   - enemyPref: {fileID: 1848791217753964365, guid: ec982ef0beb912e4692abf8ae41319d1, type: 3}
     count: 0
     cooldown: 23.92

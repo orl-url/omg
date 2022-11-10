@@ -1,3 +1,4 @@
+using System;
 using Enemies;
 using Interfaces;
 using UnityEngine;
@@ -8,15 +9,18 @@ namespace Weapons
 {
     public class Arrow : MonoBehaviour
     {
-        private float _speed;
+        private float _speed = 3f;
         private float _damage;
         
+        private float _lifetime = 3;
+        
         private Rigidbody2D _rb;
+        private LayerMask _layerMask;
 
-        public void Init(AnyBuilding anyBuilding)
+        public void Init(float damage, LayerMask layerMask)
         {
-            _speed = anyBuilding.arrowSpeed;
-            _damage = anyBuilding.arrowDamage;
+            _damage = damage;
+            _layerMask = layerMask;
         }
         
         private void Awake()
@@ -24,9 +28,15 @@ namespace Weapons
             _rb = GetComponent<Rigidbody2D>();
         }
 
+
         private void FixedUpdate()
         {
             Move();
+
+            if (_lifetime <= 0)
+                Destroy(gameObject);
+
+            _lifetime -= Time.deltaTime;
         }
 
         private void Move()
@@ -37,9 +47,15 @@ namespace Weapons
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.TryGetComponent(out IEnemyDamageable damageable))
+            if (_layerMask != col.gameObject.layer && col.TryGetComponent(out IEnemyDamageable damageable))
             {
                 damageable.TakeDamage(_damage);
+                Destroy(gameObject);
+
+            }
+            else if (_layerMask != col.gameObject.layer && col.TryGetComponent(out IBuiDamageable buiDamageable))
+            {
+                buiDamageable.TakeDamage(_damage);
                 Destroy(gameObject);
             }
         }

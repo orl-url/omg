@@ -14,7 +14,7 @@ public static class EnemiesStats
 
         public float coinsForDeath;
 
-        public float speed;
+        public float speed, arrowSpeed;
 
         public static readonly List<Enemy> AllEnemies = new List<Enemy>();
 
@@ -61,8 +61,10 @@ public static class EnemiesStats
             // meleeDamage = 10f,
             // meleeAttackCooldown = 0.5f,
             
-            rangeDamage = 15f,
-            rangeAttackCooldown = 0.3f,
+            rangeDamage = 25f,
+            rangeAttackCooldown = 0.5f,
+            
+            // arrowSpeed = 3f,
             
             coinsForDeath = 1,
             speed = 2.5f,
